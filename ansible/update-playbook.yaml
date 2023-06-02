@@ -7,9 +7,15 @@
             name: "*"
             state: latest
 
+    -   name: gather the package facts
+        ansible.builtin.package_facts:
+            manager: auto
+
     -   name: Install tool to update pip python packte manager
         ansible.builtin.pip:
             name: pip-review
+        when: "'pip' in ansible_facts.packages"
 
     -   name: Update pip python packte manager
         ansible.builtin.command: pip-review --local --auto
+        when: "'pip' in ansible_facts.packages"
