@@ -1,0 +1,25 @@
+-   name: Creat Users on according to userExport.yaml from head node
+    hosts: com
+
+    tasks:
+    -   name: Include export.yaml
+        ansible.builtin.include_vars:
+            file: userExport.yaml
+            name: userfile
+    -   name: Iterate over previosly loaded user dictionary and create with password
+        ansible.builtin.user:
+            name: "{{ item.name }}"
+            uid: "{{ item.uid }}"
+            home: "/home/{{ item.name }}"
+            create_home: false
+            password: "{{item.pwhash}}"
+        loop: "{{userfile.users}}"
+        when: item.pwhash != "!!"
+    -   name: Iterate over previosly loaded user dictionary and create with out password
+        ansible.builtin.user:
+            name: "{{ item.name }}"
+            uid: "{{ item.uid }}"
+            home: "/home/{{ item.name }}"
+            create_home: false
+        loop: "{{userfile.users}}"
+        when: item.pwhash == "!!"
