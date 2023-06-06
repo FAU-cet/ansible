@@ -1,0 +1,15 @@
+---
+-   name: setup compute node
+    hosts: com
+
+    roles:
+    -   role: fix-dmf
+    -   role: update
+    -   role: configure-sshd
+    -   role: mount-nfs
+        vars:
+            server: "pc-t2-n0"
+            serverPath: "/srv/exports/home"
+            clientPath: "/home"
+    -   role: createUsers
+

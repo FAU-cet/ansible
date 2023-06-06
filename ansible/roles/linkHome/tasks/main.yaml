@@ -1,0 +1,27 @@
+---
+-   name: create link
+    ansible.builtin.file:
+        src: /srv/exports/home
+        dest: /home/head
+        state: link
+-   name: Include export.yaml
+    ansible.builtin.include_vars:
+        file: userExport.yaml
+        name: userfile
+-   name: Iterate over previosly loaded user dictionary and create with password
+    ansible.builtin.user:
+        name: "{{ item.name }}"
+        uid: "{{ item.uid }}"
+        home: "/home/head/{{ item.name }}"
+        create_home: false
+        password: "{{item.pwhash}}"
+    loop: "{{userfile.users}}"
+    when: item.pwhash != "!!"
+-   name: Iterate over previosly loaded user dictionary and create with out password
+    ansible.builtin.user:
+        name: "{{ item.name }}"
+        uid: "{{ item.uid }}"
+        home: "/home/head/{{ item.name }}" #change head with variable
+        create_home: false
+    loop: "{{userfile.users}}"
+    when: item.pwhash == "!!"
