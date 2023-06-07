@@ -3,7 +3,7 @@
     hosts: com
 
     roles:
-    -   role: fix-dnf
+    #-   role: fix-dnf
     -   role: update
     -   role: configure-sshd
     -   role: mount-nfs
