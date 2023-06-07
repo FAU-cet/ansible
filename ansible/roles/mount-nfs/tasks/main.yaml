@@ -5,13 +5,8 @@
         state: present
 -   name: Mount nfs
     ansible.posix.mount:
-        src: pc-t2-n0:/srv/exports/home
-        path: /home
+        src: "{{server}}:{{serverPath}}"
+        path: "{{clientPath}}"
         opts: rw,sync
         state: mounted
         fstype: nfs
--   name: SELinux allow nfs homes
-    ansible.posix.seboolean:
-        name: use_nfs_home_dirs
-        state: true
-        persistent: true

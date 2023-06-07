@@ -3,13 +3,18 @@
     hosts: com
 
     roles:
-    -   role: fix-dmf
+    -   role: fix-dnf
     -   role: update
     -   role: configure-sshd
     -   role: mount-nfs
         vars:
-            server: "pc-t2-n0"
             serverPath: "/srv/exports/home"
             clientPath: "/home"
     -   role: createUsers
-
+    -   role: selinux
+        vars:
+            plice: "use_nfs_home_dirs"
+    -   role: mount-nfs
+        vars:
+            serverPath: "srv/exports/software"
+            clientPath: "/"
