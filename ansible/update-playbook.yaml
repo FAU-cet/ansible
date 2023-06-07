@@ -2,7 +2,7 @@
     hosts: all
 
     tasks:
-    -   name: Update packte manager
+    -   name: Update package manager
         ansible.builtin.dnf:
             name: "*"
             state: latest
@@ -13,10 +13,10 @@
 
     -   name: Install tool update and perform update of pip
         block:
-        -   name: Install tool to update pip python packte manager
+        -   name: Install tool to update pip python package manager
             ansible.builtin.pip:
                 name: pip-review
 
-        -   name: Update pip python packte manager
+        -   name: Update pip python package manager
             ansible.builtin.command: pip-review --local --auto
         when: "'pip' in ansible_facts.packages"
