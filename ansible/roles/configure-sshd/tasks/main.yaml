@@ -1,6 +1,6 @@
 ---
--   name: Turn password authentiktion of
+-   name: Turn password authentication off
     ansible.builtin.lineinfile:
         path: /etc/ssh/sshd_config
-        search_string: 'PasswordAPasswordAuthentication yes'
+        search_string: 'PasswordAuthentication yes'
         line: 'PasswordAuthentication no'

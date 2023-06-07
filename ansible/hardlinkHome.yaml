@@ -11,7 +11,7 @@
         ansible.builtin.include_vars:
             file: userExport.yaml
             name: userfile
-    -   name: Iterate over previosly loaded user dictionary and create with password
+    -   name: Iterate over previously loaded user dictionary and create with password
         ansible.builtin.user:
             name: "{{ item.name }}"
             uid: "{{ item.uid }}"
@@ -20,7 +20,7 @@
             password: "{{item.pwhash}}"
         loop: "{{userfile.users}}"
         when: item.pwhash != "!!"
-    -   name: Iterate over previosly loaded user dictionary and create with out password
+    -   name: Iterate over previously loaded user dictionary and create without password
         ansible.builtin.user:
             name: "{{ item.name }}"
             uid: "{{ item.uid }}"

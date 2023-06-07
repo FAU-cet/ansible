@@ -3,7 +3,7 @@
     ansible.builtin.dnf:
         name: nfs-utils
         state: present
--   name: Create Share folder
+-   name: Create share folder
     ansible.builtin.lineinfile:
         path: /etc/exports
         line: "{{ path }} {{ client }}({{ mode }},sync)"
