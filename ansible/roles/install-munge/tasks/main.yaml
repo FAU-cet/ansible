@@ -1,0 +1,27 @@
+---
+-   name: install dependentsis for bootstrap
+    ansible.builtin.dnf:
+        name:
+        -   autoconf
+        -   automake
+        -   libtool
+
+-   name: clone git for munge
+    ansible.builtin.git:
+        repo: 'https://github.com/dun/munge.git'
+        dest: "{{installPath}}"
+
+-   name: bootstrap
+    ansible.builtin.command: "{{installPath}}/munge/bootstrap"
+
+-   name: configure munge
+    ansible.builtin.command: "{{installPath}}/munge/configure {{config}}"
+
+-   name: make
+    ansible.builtin.make:
+        chdir: "{{installPath}}/munge"
+
+-   name: make install
+    ansible.builtin.make:
+        chdir: "{{installPath}}/munge"
+        target: install

@@ -1,0 +1,6 @@
+---
+-   name: push file from head to com
+    ansible.posix.synchronize:
+        src: "${sysconfdir}/munge/munge.key"
+        dest: "${sysconfdir}/munge/munge.key"
+    delegate_to: pc-t2-n0

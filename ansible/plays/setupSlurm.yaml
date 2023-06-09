@@ -1,0 +1,44 @@
+---
+-   name: create users for slurm and munge
+    hosts: all
+
+    roles:
+    -   role: create-slurm-users
+
+-   name: install slurm and dependend munge on head node
+    hosts: head
+
+    roles:
+    -   role: install-munge
+    -   role: install-slurm
+    -   role: enable-autostart
+        vars:
+            services:
+            -   slurmctld
+            -   slurmd
+
+-   name: install slurm and dependend munge on com node (slurm.rpm form head)
+    hosts: com
+
+    roles:
+    -   role: install-munge
+    -   role: install-slurm-from-head
+    -   role: enable-autostart
+        vars:
+            services:
+            -   slurmd
+            -   munge.service
+
+-   name: create key
+    hosts: head
+
+    roles:
+    -   role: munge-create-key
+
+-   name: roleout key
+    hosts: com
+
+    roles:
+    -   role: munge-key-roleout
+
+

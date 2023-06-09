@@ -1,0 +1,11 @@
+---
+-   name: get slurm rpms from head
+    ansible.posix.synchronize:
+        src: "{{ item }}"
+        dest: "{{ item }}"
+    delegate_to: pc-t2-n0
+    with_fileglob: "{{ path }}/*.rpm"
+
+-   name: rpm install files
+    ansible.builtin.command: "rpm --install {{ item }}" #installtion will be in home of buiding user
+    with_fileglob: "{{ path }}/*.rpm"

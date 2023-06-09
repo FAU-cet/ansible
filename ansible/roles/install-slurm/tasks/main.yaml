@@ -1,0 +1,17 @@
+---
+-   name: ensure folder for download is pressend
+    ansible.builtin.file:
+        path: "{{ path }}"
+        state: dirctory
+
+-   name: download tar
+    ansible.builtin.get_url:
+        url: "https://download.schedmd.com/slurm/slurm-23.02.2.tar.bz2"
+        dest: "{{ path }}"
+
+-   name: rpmbuild
+    ansible.builtin.command: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2"
+
+-   name: rpm install files
+    ansible.builtin.command: "rpm --install {{ item }}" #installtion will be in home of buiding user
+    with_fileglob: "{{ path }}/*.rpm"

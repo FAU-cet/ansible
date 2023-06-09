@@ -1,0 +1,10 @@
+---
+-   name: create key for munge
+    ansible.builtin.command: "munge ${sbindir}/munekey --verbose"
+
+-   name: set ownership for key file
+    ansible.builtin.file:
+        path: "${sysconfdir}/munge/munge.key"
+        mode: '0600'
+        owner: munge
+        group: munge
