@@ -13,6 +13,7 @@
 
 -   name: bootstrap
     ansible.builtin.command: "{{installPath}}/bootstrap"
+        chdir: "{{ installPath }}"
 
 -   name: configure munge
     ansible.builtin.command: "{{installPath}}/configure {{config}}"
