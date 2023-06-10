@@ -9,8 +9,10 @@
     -   role: mount-nfs
         vars:
             serverPath: "/srv/exports/home"
-            clientPath: "/home"
+            clientPath: "/home/users"
     -   role: createUsers
+        vars:
+            homePath: "/home/users"
     -   role: selinux
         vars:
             plice: "use_nfs_home_dirs"
