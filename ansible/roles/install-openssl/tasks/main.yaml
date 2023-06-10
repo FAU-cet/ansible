@@ -1,4 +1,9 @@
 ---
+-   name: install FindBin from dnf
+    ansible.builtin.dnf:
+        name: perl-FindBin
+        state: persent
+
 -   name: clone repo
     ansible.builtin.git:
         repo: "https://github.com/openssl/openssl.git"
