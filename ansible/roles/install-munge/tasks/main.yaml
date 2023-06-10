@@ -16,6 +16,7 @@
 
 -   name: configure munge
     ansible.builtin.command: "{{installPath}}/configure {{config}}"
+        chdir: "{{ installPath }}"
 
 -   name: make
     ansible.builtin.make:
