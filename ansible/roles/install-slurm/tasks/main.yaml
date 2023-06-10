@@ -3,15 +3,26 @@
     ansible.builtin.file:
         path: "{{ path }}"
         state: dirctory
+-   name: check if installtion nessesary
+    ansible.builtin.find:
+        path: "{{ path }}"
+        patterns:
+        -   "*.rpm"
+    register: rpm
 
--   name: download tar
-    ansible.builtin.get_url:
-        url: "https://download.schedmd.com/slurm/slurm-23.02.2.tar.bz2"
-        dest: "{{ path }}"
+-   name: perform installtion if nessesary
+    block:
 
--   name: rpmbuild
-    ansible.builtin.command: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2"
+    -   name: download tar
+        ansible.builtin.get_url:
+            url: "https://download.schedmd.com/slurm/slurm-23.02.2.tar.bz2"
+            dest: "{{ path }}"
 
--   name: rpm install files
-    ansible.builtin.command: "rpm --install {{ item }}" #installtion will be in home of buiding user
-    with_fileglob: "{{ path }}/*.rpm"
+    -   name: rpmbuild
+        ansible.builtin.command: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2"
+
+    -   name: rpm install files
+        ansible.builtin.command: "rpm --install {{ item }}" #installtion will be in home of buiding user
+        with_fileglob: "{{ path }}/*.rpm"
+
+    when: rpm.mached == 0

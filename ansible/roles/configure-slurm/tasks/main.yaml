@@ -1,0 +1,5 @@
+---
+-   name: copy slurm.conf to nodes
+    ansible.builtin.copy:
+        src: slurm.conf
+        dest: /etc/slurm/slurm.conf

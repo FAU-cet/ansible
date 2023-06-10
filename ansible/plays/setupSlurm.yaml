@@ -5,6 +5,16 @@
     roles:
     -   role: create-slurm-users
 
+-   name: enable firewall for slurm
+    hosts: all
+
+    roles:
+    -   role: enable-firewall-ports
+        vars:
+        -   ports:
+            -   7012
+            -   7013
+
 -   name: install slurm and dependend munge on head node
     hosts: head
 
@@ -40,5 +50,11 @@
 
     roles:
     -   role: munge-key-roleout
+
+-   name: roleout slurm.conf
+    hosts: all
+
+    roles:
+    -   role: configure-slurm
 
 

@@ -1,0 +1,7 @@
+---
+-   name: enable tcp ports
+    ansible.posix.firewalld:
+        port: "{{ item }}/tcp"
+        state: enable
+        permanent: true
+    loop: "{{ ports }}"
