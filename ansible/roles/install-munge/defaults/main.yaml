@@ -1,1 +1,2 @@
- 
+config: "--prefix=/usr --sysconfdir=/etc --localstatdir=/var --runstatedir=/run"
+#defaults from https://github.com/dun/munge/wiki/Installation-Guide

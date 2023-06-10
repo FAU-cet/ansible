@@ -21,7 +21,7 @@
     roles:
     -   role: install-munge
         vars:
-            installPath: "/home/system/munge"
+            installPath: "/home/system/munge/software"
     -   role: install-slurm
         vars:
             path: "/root/slurm/"

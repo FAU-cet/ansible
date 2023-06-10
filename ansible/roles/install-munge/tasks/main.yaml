@@ -12,10 +12,10 @@
         dest: "{{installPath}}"
 
 -   name: bootstrap
-    ansible.builtin.command: "{{installPath}}/munge/bootstrap"
+    ansible.builtin.command: "{{installPath}}/bootstrap"
 
 -   name: configure munge
-    ansible.builtin.command: "{{installPath}}/munge/configure {{config}}"
+    ansible.builtin.command: "{{installPath}}/configure {{config}}"
 
 -   name: make
     ansible.builtin.make:
