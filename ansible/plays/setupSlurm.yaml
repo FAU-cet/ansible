@@ -20,7 +20,11 @@
 
     roles:
     -   role: install-munge
+        vars:
+            installPath: "/home/system/munge"
     -   role: install-slurm
+        vars:
+            path: "/root/slurm/"
     -   role: enable-autostart
         vars:
             services:
