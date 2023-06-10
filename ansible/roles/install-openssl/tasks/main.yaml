@@ -1,0 +1,19 @@
+---
+-   name: clone repo
+    ansible.builtin.git:
+        repo: "https://github.com/openssl/openssl.git"
+        dest: "{{ path }}"
+
+-   name: configure openssl
+    ansible.builtin.command:
+        cmd: "./Configure --prefix=/usr/local/ssl --openssldir=/usr/local/ssl"
+        chdir: "{{ path }}"
+
+-   name: make
+    ansible.builtin.make:
+        chdir: "{{ path }}"
+
+-   name: make install
+    ansible.builtin.make:
+        chdir: "{{ path }}"
+        target: install

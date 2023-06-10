@@ -21,7 +21,10 @@
     roles:
     -   role: install-munge
         vars:
-            installPath: "/home/system/munge/software"
+            installPath: "/home/system/munge/software/munge"
+    -   role: install-openssl
+        vars:
+            path: "/home/system/munge/software/openssl"
     -   role: install-slurm
         vars:
             path: "/root/slurm/"
@@ -36,6 +39,11 @@
 
     roles:
     -   role: install-munge
+        vars:
+            installPath: "/home/system/munge/software/munge"
+    -   role: install-openssl
+        vars:
+            path: "/home/system/munge/software/openssl"
     -   role: install-slurm-from-head
     -   role: enable-autostart
         vars:

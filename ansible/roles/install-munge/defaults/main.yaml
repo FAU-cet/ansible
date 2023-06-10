@@ -1,2 +1,2 @@
-config: "--prefix=/usr --sysconfdir=/etc --localstatedir=/var --runstatedir=/run --with-crypto-lib=libgcrypt"
+config: "" #"--with-crypto-lib=libgcrypt"
 #defaults from https://github.com/dun/munge/wiki/Installation-Guide
