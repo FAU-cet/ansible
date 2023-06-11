@@ -2,7 +2,7 @@
 -   name: ensure folder for download is pressend
     ansible.builtin.file:
         path: "{{ path }}"
-        state: dirctory
+        state: directory
 -   name: check if installtion nessesary
     ansible.builtin.find:
         path: "{{ path }}"
