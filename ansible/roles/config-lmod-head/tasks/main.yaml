@@ -1,0 +1,21 @@
+# todo: add file permissions
+---
+-   name: create modulefiles folder
+    file:
+      path: /srv/exports/apps/modulefiles
+      state: directory
+
+-   name: add modfiles folder to paths
+    ansible.builtin.lineinfile:
+      path: ~/.bashrc
+      line: export MODULEPATH=/srv/exports/apps/modulefiles:$MODULEPATH
+
+-   name: add gcc modulefile folder
+    file:
+      path: /srv/exports/apps/modulefiles/gcc
+      state: directory
+
+-   name: add gcc modulefile
+    copy:
+      dest: /srv/exports/apps/modulefiles/gcc/12.2.lua
+      src: gcc_12.2.lua
