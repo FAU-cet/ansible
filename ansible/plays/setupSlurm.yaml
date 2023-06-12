@@ -1,4 +1,10 @@
 ---
+-   name: update
+    hosts: all
+
+    roles:
+    -   role: update
+
 -   name: create users for slurm and munge
     hosts: all
 
@@ -19,15 +25,10 @@
     hosts: head
 
     roles:
-    -   role: install-openssl
-        vars:
-            path: "/home/system/munge/software/openssl"
     -   role: install-munge
-        vars:
-            installPath: "/home/system/munge/software/munge"
     -   role: install-slurm
         vars:
-            path: "/root/slurm/"
+            path: "/root/slurm"
     -   role: enable-autostart
         vars:
             services:
@@ -38,12 +39,7 @@
     hosts: com
 
     roles:
-    -   role: install-openssl
-        vars:
-            path: "/home/system/munge/software/openssl"
     -   role: install-munge
-        vars:
-            installPath: "/home/system/munge/software/munge"
     -   role: install-slurm-from-head
     -   role: enable-autostart
         vars:

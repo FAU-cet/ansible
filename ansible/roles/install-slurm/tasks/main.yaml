@@ -1,5 +1,5 @@
 ---
--   name: ensure folder for download is pressend
+-   name: ensure folder for download is present
     ansible.builtin.file:
         path: "{{ path }}"
         state: directory
@@ -18,11 +18,23 @@
             url: "https://download.schedmd.com/slurm/slurm-23.02.2.tar.bz2"
             dest: "{{ path }}"
 
+    -   name: install rpm-build
+        ansible.builtin.dnf:
+            name: rpm-build
+            state: present
+
+    -   name: copy .rpmmacros
+        ansible.builtin.copy:
+            src: ".rpmmacros"
+            dest: "/root"
+
     -   name: rpmbuild
-        ansible.builtin.command: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2"
+        ansible.builtin.command: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2 --without mysql"
 
     -   name: rpm install files
         ansible.builtin.command: "rpm --install {{ item }}" #installtion will be in home of buiding user
-        with_fileglob: "{{ path }}/*.rpm"
+        with_fileglob: "/root/rpmbuild/RPMS/x86_64/*.rpm"
+        register: install
+        until: install is not failed
 
-    when: rpm.mached == 0
+    when: rpm.matched == 0

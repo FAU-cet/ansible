@@ -1,39 +1,33 @@
 ---
--   name: install dependentsis for bootstrap
+-   name: install depend for slurm
     ansible.builtin.dnf:
         name:
-        -   autoconf
-        -   automake
-        -   libtool
-
--   name: clone git for munge
-    ansible.builtin.git:
-        repo: 'https://github.com/dun/munge.git'
-        dest: "{{installPath}}"
-
--   name: bootstrap
-    ansible.builtin.command:
-        cmd: "{{installPath}}/bootstrap"
-        chdir: "{{ installPath }}"
-        creates: "{{ installPath }}/configure"
-
--   name: link lib to lib64 (maximum jank)
-    ansible.builtin.file:
-        src: /usr/local/ssl/lib64
-        dest: /usr/local/ssl/lib
-        state: link
-
--   name: configure munge
-    ansible.builtin.command:
-        cmd: "{{installPath}}/configure {{config}}"
-        chdir: "{{ installPath }}"
-        creates: "{{ installPath }}/Makefile"
-
--   name: make
-    ansible.builtin.make:
-        chdir: "{{installPath}}"
-
--   name: make install
-    ansible.builtin.make:
-        chdir: "{{installPath}}"
-        target: install
+        -   rpm-build
+        -   gcc
+        -   python3
+        -   openssl
+        -   openssl-devel
+        -   numactl
+        -   numactl-devel
+        -   hwloc
+        -   hwloc-devel
+        -   lua
+        -   lua-devel
+        -   rrdtool-devel
+        -   ncurses-devel
+        -   gtk2-devel
+        -   libibmad
+        -   libibumad
+        -   perl-Switch
+        -   perl-ExtUtils-MakeMaker
+        -   xorg-x11-xauth
+        -   http-parser-devel
+        -   json-c-devel
+        -   munge
+        -   munge-devel
+        -   munge-libs
+        -   pam-devel
+        -   readline-devel
+        -   mariadb-server
+        -   mariadb-devel
+        state: present

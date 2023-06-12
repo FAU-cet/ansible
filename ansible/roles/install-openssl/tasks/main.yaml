@@ -12,17 +12,21 @@
         path: "{{ path }}/.git"
     register: repoStat
 
+#-   name: debug
+#    ansible.builtin.debug:
+#        msg: "{{repoStat.stat.exists}}"
+
 -   name: clone repo
     ansible.builtin.git:
         repo: "https://github.com/openssl/openssl.git"
         dest: "{{ path }}"
-        clone: not repoStat.exists
+        clone: "{{repoStat.stat.exists == False}}"
 
 -   name: configure openssl
     ansible.builtin.command:
         cmd: "./Configure --prefix=/usr/local/ssl --openssldir=/usr/local/ssl"
         chdir: "{{ path }}"
-        creates: "{{ path}}/Makefile"
+        creates: "{{ path }}/Makefile"
 
 -   name: make
     ansible.builtin.make:
