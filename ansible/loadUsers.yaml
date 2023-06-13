@@ -1,7 +1,0 @@
--   name: Create userExport.yaml
-    #by reading /etc/passwd and looking up the hashis from /etc/shadow
-    hosts: head
-
-    tasks:
-    -   name: execute the export script
-        ansible.builtin.shell: python sucopra/ansible/loadUsers_yaml.py > sucopra/ansible/userExport.yaml

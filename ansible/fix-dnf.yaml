@@ -1,7 +1,0 @@
--   name: Fix dnf packtmangar
-    hosts: com
-
-    tasks:
-    -   name: Rebuild the Packet database
-        ansible.builtin.shell: |
-            rpmdb --rebuilddb

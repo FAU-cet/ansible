@@ -1,9 +1,0 @@
--   name: Configure SSH server
-    hosts: com
-
-    tasks:
-    -   name: Turn password authentication off
-        ansible.builtin.lineinfile:
-            path: /etc/ssh/sshd_config
-            search_string: 'PasswordAuthentication yes'
-            line: 'PasswordAuthentication no'
