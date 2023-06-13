@@ -1,0 +1,17 @@
+---
+-   name: setup module system
+    hosts: all
+
+    roles:
+      -   role: install-lmod
+      -   role: setup-gcc
+
+-   name: config lmod on head
+    hosts: head
+    roles:
+      -   role: config-lmod-head
+
+-   name: config lmod on comp
+    hosts: com
+    roles:
+      -   role: config-lmod-com
