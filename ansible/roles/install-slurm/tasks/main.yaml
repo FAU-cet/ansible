@@ -3,12 +3,10 @@
     ansible.builtin.file:
         path: "{{ path }}"
         state: directory
--   name: check if installtion nessesary
-    ansible.builtin.find:
-        path: "{{ path }}"
-        patterns:
-        -   "*.rpm"
-    register: rpm
+
+-   name: Gather package_facts
+    ansible.builtin.package_facts:
+        manager: rpm
 
 -   name: perform installtion if nessesary
     block:
@@ -29,12 +27,24 @@
             dest: "/root"
 
     -   name: rpmbuild
-        ansible.builtin.command: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2 --without mysql"
+        ansible.builtin.command:
+            cmd: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2 --without mysql"
+            creates: "~/rpmbuild/RPMS/x86_64/slurm*.rpm"
 
     -   name: rpm install files
-        ansible.builtin.command: "rpm --install {{ item }}" #installtion will be in home of buiding user
-        with_fileglob: "/root/rpmbuild/RPMS/x86_64/*.rpm"
-        register: install
-        until: install is not failed
+        ansible.builtin.command: "rpm --install /root/rpmbuild/RPMS/x86_64/{{ item }}-23.02.2-1.el9.x86_64.rpm" #installtion will be in home of buiding user
+        when: "'{{ item }}' not in ansible_facts.packages"
+        with_items:
+        -   slurm
+        -   slurm-slurmctld
+        -   slurm-slurmd
+        -   slurm-perlapi
+        -   slurm-pam_slurm
+        -   slurm-libpmi
+        -   slurm-torque
+        -   slurm-devel
+        -   slurm-contribs
+        -   slurm-example-configs
+        -   slurm-openlava
 
-    when: rpm.matched == 0
+    when: true

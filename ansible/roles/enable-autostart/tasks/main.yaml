@@ -1,7 +1,7 @@
 ---
 -   name: start servies and autostart
     ansible.builtin.systemd:
-        state: strarted
+        state: started
         name: "{{ item }}"
         enabled: true
-    loop: "{{ servcies }}"
+    loop: "{{ services }}"
