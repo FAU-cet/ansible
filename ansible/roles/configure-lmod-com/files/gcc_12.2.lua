@@ -1,4 +1,4 @@
-local base = pathJoin("todo/path/to/gcc")
+local base = pathJoin("/software/gcc/gcc-12.2.0")
 
 family("gcc")
 

@@ -4,14 +4,21 @@
 
     roles:
       -   role: install-lmod
-      -   role: setup-gcc
 
--   name: config lmod on head
+-   name: install gcc-12.2.0 in exports
+    hosts: head
+
+    roles:
+      -   role: install-gcc
+          vars:
+              ver: "12.2.0"  
+
+-   name: config lmod for hosting via nfs
     hosts: head
     roles:
-      -   role: config-lmod-head
+      -   role: configure-lmod-nfs
 
--   name: config lmod on comp
-    hosts: com
+-   name: config lmod for compute nodes
+    hosts: all
     roles:
-      -   role: config-lmod-com
+      -   role: configure-lmod-com

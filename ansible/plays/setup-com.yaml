@@ -10,7 +10,7 @@
         vars:
             serverPath: "/srv/exports/home"
             clientPath: "/home/users"
-    -   role: createUsers
+    -   role: create-users
         vars:
             homePath: "/home/users"
     -   role: selinux
@@ -19,4 +19,4 @@
     -   role: mount-nfs
         vars:
             serverPath: "srv/exports/software"
-            clientPath: "/"
+            clientPath: "/software"

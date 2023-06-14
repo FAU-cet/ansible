@@ -7,6 +7,9 @@
     ansible.builtin.lineinfile:
         path: /etc/exports
         line: "{{ path }} {{ client }}({{ mode }},sync)"
+
+
+
 -   name: Restart NFS-Server
     ansible.builtin.service:
         name: nfs-server

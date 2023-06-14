@@ -10,6 +10,23 @@
     -   role: folder
         vars:
             path: "/srv/exports/software"
+
     -   role: share-nfs
         vars:
             path: "/srv/exports/software"
+            client: "pc-t2-n0"
+
+    -   role: share-nfs
+        vars:
+            path: "/srv/exports/software"
+            client: "pc-t2-n1"
+
+    -   role: share-nfs
+        vars:
+            path: "/srv/exports/home"
+            client: "pc-t2-n1"
+
+    -   role: mount-nfs
+        vars:
+            serverPath: "srv/exports/software"
+            clientPath: "/software"

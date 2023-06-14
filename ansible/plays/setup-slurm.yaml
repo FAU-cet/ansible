@@ -34,6 +34,11 @@
             services:
             -   slurmctld
             -   slurmd
+    -   role: munge-create-key
+    -   role: enable-autostart
+        vars:
+            services:
+            -   munge.service
 
 -   name: install slurm and dependend munge on com node (slurm.rpm form head)
     hosts: com
@@ -41,23 +46,12 @@
     roles:
     -   role: install-munge
     -   role: install-slurm-from-head
+    -   role: munge-key-roleout
     -   role: enable-autostart
         vars:
             services:
             -   slurmd
             -   munge.service
-
--   name: create key
-    hosts: head
-
-    roles:
-    -   role: munge-create-key
-
--   name: roleout key
-    hosts: com
-
-    roles:
-    -   role: munge-key-roleout
 
 -   name: roleout slurm.conf
     hosts: all

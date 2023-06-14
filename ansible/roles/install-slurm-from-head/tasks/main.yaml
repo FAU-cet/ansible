@@ -1,7 +1,12 @@
 ---
+-   name: create folder
+    ansible.builtin.file:
+        path: "/root/rpmbuild/RPMS/x86_64"
+        state: directory
+
 -   name: get slurm rpms from head
     ansible.posix.synchronize:
-        src: "/root/rpmbuild/RPMS/x86_64"
+        src: "{{ item }}"
         dest: "{{ item }}"
     delegate_to: pc-t2-n0
     with_fileglob: "/root/rpmbuild/RPMS/x86_64/*.rpm"
@@ -12,7 +17,7 @@
 
 -   name: rpm install files
     ansible.builtin.command: "rpm --install /root/rpmbuild/RPMS/x86_64/{{ item }}-23.02.2-1.el9.x86_64.rpm" #installtion will be in home of buiding user
-    when: "'{{ item }}' not in ansible_facts.packages"
+    when: "item | string not in ansible_facts.packages"
     with_items:
     -   slurm
     -   slurm-slurmctld

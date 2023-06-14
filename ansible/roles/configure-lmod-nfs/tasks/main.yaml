@@ -1,0 +1,16 @@
+# todo: add file permissions
+---
+-   name: create modulefiles folder
+    file:
+      path: /srv/exports/software/modulefiles
+      state: directory
+
+-   name: add gcc modulefile folder
+    file:
+      path: /srv/exports/software/modulefiles/gcc
+      state: directory
+
+-   name: add gcc-12.2.0 modulefile
+    copy:
+      dest: /srv/exports/software/modulefiles/gcc/gcc-12.2.0.lua
+      src: gcc-12.2.0.lua
