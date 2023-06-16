@@ -5,3 +5,7 @@
         state: enabled
         permanent: true
     loop: "{{ ports }}"
+
+-   name: reload firewalld
+    ansible.builtin.command:
+        cmd: "firewall-cmd --reload"

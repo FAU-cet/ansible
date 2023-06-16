@@ -30,4 +30,5 @@
         -   readline-devel
         -   mariadb-server
         -   mariadb-devel
+        -   dbus-devel
         state: present

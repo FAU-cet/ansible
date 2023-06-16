@@ -20,7 +20,7 @@
     when: "item | string not in ansible_facts.packages"
     with_items:
     -   slurm
-    -   slurm-slurmctld
+    #-   slurm-slurmctld
     -   slurm-slurmd
     -   slurm-perlapi
     -   slurm-pam_slurm
@@ -30,3 +30,21 @@
     -   slurm-contribs
     -   slurm-example-configs
     -   slurm-openlava
+
+-   name: rpm reinstall files
+    ansible.builtin.command: "rpm --reinstall /root/rpmbuild/RPMS/x86_64/{{ item }}-23.02.2-1.el9.x86_64.rpm"
+    when:
+    -   "item | string in ansible_facts.packages"
+    -   reinstall
+    with_items:
+        -   slurm
+        #-   slurm-slurmctld
+        -   slurm-slurmd
+        -   slurm-perlapi
+        -   slurm-pam_slurm
+        -   slurm-libpmi
+        -   slurm-torque
+        -   slurm-devel
+        -   slurm-contribs
+        -   slurm-example-configs
+        -   slurm-openlava

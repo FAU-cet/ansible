@@ -29,11 +29,6 @@
     -   role: install-slurm
         vars:
             path: "/root/slurm"
-    -   role: enable-autostart
-        vars:
-            services:
-            -   slurmctld
-            -   slurmd
     -   role: munge-create-key
     -   role: enable-autostart
         vars:
@@ -50,7 +45,6 @@
     -   role: enable-autostart
         vars:
             services:
-            -   slurmd
             -   munge.service
 
 -   name: roleout slurm.conf
@@ -59,4 +53,22 @@
     roles:
     -   role: configure-slurm
 
+-   name: start service head
+    hosts: head
+
+    roles:
+    -   role: enable-autostart
+        vars:
+            services:
+            -   slurmctld
+            -   slurmd
+
+-   name: start service com
+    hosts: com
+
+    roles:
+    -   role: enable-autostart
+        vars:
+            services:
+            -   slurmd
 
