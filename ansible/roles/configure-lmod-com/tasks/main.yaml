@@ -1,6 +1,0 @@
-# todo: add file permissions
----
--   name: add modfiles folder to paths
-    ansible.builtin.lineinfile:
-      path: ~/.bashrc
-      line: export MODULEPATH=/software/modulefiles:$MODULEPATH

@@ -17,8 +17,3 @@
     hosts: head
     roles:
       -   role: configure-lmod-nfs
-
--   name: config lmod for compute nodes
-    hosts: all
-    roles:
-      -   role: configure-lmod-com
