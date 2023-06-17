@@ -1,10 +1,5 @@
 # todo: add file permissions
 ---
--   name: create modulefiles folder
-    ansible.builtin.file:
-      path: /srv/exports/software/modulefiles
-      state: directory
-
 -   name: add gcc modulefile folder
     ansible.builtin.file:
       path: /srv/exports/software/modulefiles/gcc
@@ -14,8 +9,3 @@
     ansible.builtin.copy:
       dest: /srv/exports/software/modulefiles/gcc/gcc-12.2.0.lua
       src: gcc-12.2.0.lua
-
--   name: adding MODULEPATH env variable
-    ansible.builtin.copy:
-      dest: /etc/profile.d/loadlmodmodulefiles.sh
-      src: loadlmodmodulefiles.sh

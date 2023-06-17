@@ -10,3 +10,9 @@
     ansible.builtin.copy:
         src: slurm.conf
         dest: /etc/slurm/slurm.conf
+    register: newConfig
+
+-   name: reload config if it was changed
+    ansible.builtin.command: scontrol reconfigure
+    when: newConfig.changed
+
