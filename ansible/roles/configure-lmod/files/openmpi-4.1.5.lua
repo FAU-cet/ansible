@@ -1,4 +1,4 @@
-local base = pathJoin("/software/gcc/gcc-12.2.0")
+local base = pathJoin("/software/openmpi/openmpi-4.1.5")
 
 family("openmpi")
 

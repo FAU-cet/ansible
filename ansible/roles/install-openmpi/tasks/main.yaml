@@ -12,7 +12,10 @@
 
 -   name: configure openmpi
     ansible.builtin.command:
-        cmd: ./configure --prefix=/srv/exports/software/openmpi/openmpi-4.1.5
+        #cmd: ./configure --prefix=/srv/exports/software/openmpi/openmpi-4.1.5
+        # we had to install to the exported nsf directory, since otherwise in some cases openmpi tried to follow the
+        # install path in exports, which doesnt exist on the compute node
+        cmd: ./configure --prefix=/software/openmpi/openmpi-4.1.5
         chdir: /root/openmpi/openmpi-4.1.5
         creates: /root/openmpi/openmpi-4.1.5/Makefile
 
