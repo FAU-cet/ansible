@@ -1,0 +1,24 @@
+all:
+    children:
+        head:
+            hosts:
+                cs3-emmy-11
+        com:
+            hosts:
+                cs3-emmy-8
+                cs3-emmy-9
+                cs3-emmy-10
+                cs3-emmy-12
+                cs3-emmy-13
+                cs3-emmy-14
+                cs3-emmy-15
+        k20m:
+            hosts:
+                cs3-emmy-12
+                cs3-emmy-13
+                cs3-emmy-15
+                #TODO change node
+        v100:
+            hosts:
+                cs3-emmy-8
+                cs3-emmy-9

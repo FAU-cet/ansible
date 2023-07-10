@@ -1,0 +1,23 @@
+---
+-   name: Install dependencies for dirvers
+    ansible.builtin.dnf:
+        name:
+        -   tar
+        -   bzip2
+        -   make
+        -   automake
+        -   gcc
+        -   gcc-c++
+        -   pciutils
+        -   elfutils-libelf-devel
+        -   libgivnd-devel
+        -   epel-release
+        state: present
+
+-   name: enable CBR (Powertools)
+    ansible.builtin.command:
+        cmd: dnf config-manager --set-enabled crb
+
+-   name: add cuda repo
+    ansible.builtin.command:
+        cmd: dnf config-manager --add-repo http://developer.download.nvidia.com/compute/cuda/repos/rhel9/x86_64/cuda-rhel9.repo
