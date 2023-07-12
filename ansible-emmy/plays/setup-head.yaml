@@ -3,10 +3,22 @@
     hosts: head
 
     roles:
+    -   role: update
+        vars:
+            path: "srv/exports/home"
+
     -   role: share-nfs
         vars:
             path: "/srv/exports/home"
-            client: "localhost"
+            clients:
+            -   "localhost"
+            -   "cs3-emmy-8"
+            -   "cs3-emmy-9"
+            -   "cs3-emmy-10"
+            -   "cs3-emmy-12"
+            -   "cs3-emmy-13"
+            -   "cs3-emmy-14"
+            -   "cs3-emmy-15"
 
     -   role: mount-nfs
         vars:
@@ -27,12 +39,14 @@
     -   role: share-nfs
         vars:
             path: "/srv/exports/software"
-            client: "pc-t2-n1"
-
-    -   role: share-nfs
-        vars:
-            path: "/srv/exports/home"
-            client: "pc-t2-n1"
+            clients:
+            -   "cs3-emmy-8"
+            -   "cs3-emmy-9"
+            -   "cs3-emmy-10"
+            -   "cs3-emmy-12"
+            -   "cs3-emmy-13"
+            -   "cs3-emmy-14"
+            -   "cs3-emmy-15"
 
     -   role: mount-nfs
         vars:
@@ -43,3 +57,6 @@
     -   role: selinux
         vars:
             plice: "use_nfs_home_dirs"
+
+    -   role: create-users-with-tmp-passwd
+    -   role: dye-prompt

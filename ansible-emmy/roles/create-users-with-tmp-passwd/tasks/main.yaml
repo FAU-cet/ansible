@@ -1,0 +1,13 @@
+---
+-   name: Iterate over StudOn IDs and create with onetime password
+    ansible.builtin.user:
+        name: "{{ item.name }}"
+        home: "{{ homePath }}/{{ item.name }}"
+        create_home: true
+        password: "{{ item.name | password_hash('sha512') }}"
+    loop: "{{users}}"
+
+-   name: let user password expire now
+    ansible.builtin.command:
+        cmd: "passwd --expire {{item.name}}"
+    loop: "{{ users }}"
