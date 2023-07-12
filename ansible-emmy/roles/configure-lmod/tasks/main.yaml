@@ -1,0 +1,21 @@
+# todo: add file permissions
+---
+-   name: add gcc modulefile folder
+    ansible.builtin.file:
+      path: /srv/exports/software/modulefiles/gcc
+      state: directory
+
+-   name: add gcc-12.2.0 modulefile
+    ansible.builtin.copy:
+      dest: /srv/exports/software/modulefiles/gcc/gcc-12.2.0.lua
+      src: gcc-12.2.0.lua
+
+-   name: add openMPI modulefile folder
+    ansible.builtin.file:
+        path: /srv/exports/software/modulefiles/openmpi
+        state: directory
+
+-   name: add openmpi-4.1.5 modulefile
+    ansible.builtin.copy:
+        dest: /srv/exports/software/modulefiles/openmpi/openmpi-4.1.5.lua
+        src: openmpi-4.1.5.lua

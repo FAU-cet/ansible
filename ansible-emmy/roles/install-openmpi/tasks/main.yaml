@@ -1,0 +1,29 @@
+---
+-   name: create folder for download
+    ansible.builtin.file:
+        path: /root/openmpi
+        state: directory
+
+-   name: download openMPI and unpack
+    ansible.builtin.unarchive:
+        src: https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.5.tar.bz2
+        dest: /root/openmpi
+        remote_src: yes
+
+-   name: configure openmpi
+    ansible.builtin.command:
+        #cmd: ./configure --prefix=/srv/exports/software/openmpi/openmpi-4.1.5
+        # we had to install to the exported nsf directory, since otherwise in some cases openmpi tried to follow the
+        # install path in exports, which doesnt exist on the compute node
+        cmd: ./configure --prefix=/software/openmpi/openmpi-4.1.5
+        chdir: /root/openmpi/openmpi-4.1.5
+        creates: /root/openmpi/openmpi-4.1.5/Makefile
+
+-   name: make
+    ansible.builtin.make:
+        chdir: /root/openmpi/openmpi-4.1.5
+
+-   name: make install
+    ansible.builtin.make:
+        chdir: /root/openmpi/openmpi-4.1.5
+        target: install

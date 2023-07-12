@@ -1,0 +1,11 @@
+---
+-   name: enable tcp ports
+    ansible.posix.firewalld:
+        port: "{{ item }}/tcp"
+        state: enabled
+        permanent: true
+    loop: "{{ ports }}"
+
+-   name: reload firewalld
+    ansible.builtin.command:
+        cmd: "firewall-cmd --reload"
