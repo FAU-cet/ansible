@@ -3,6 +3,7 @@
     ansible.builtin.dnf:
         name: nfs-utils
         state: present
+
 -   name: Mount nfs
     ansible.posix.mount:
         src: "{{server}}:{{serverPath}}"

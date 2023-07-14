@@ -9,6 +9,10 @@
         vars:
             path: "srv/exports/home"
 
+    -   role: enable-firewall-ports
+        vars:
+            service: "nfs"
+
     -   role: share-nfs
         vars:
             path: "/srv/exports/home"
