@@ -2,13 +2,19 @@
 -   name: add zone
     ansible.posix.firewalld:
         zone: "{{ zone }}"
-        state: persent
+        state: present
+        permanent: true
+
+-   name: reload firewalld for new zone
+    ansible.builtin.command:
+        cmd: "firewall-cmd --reload"
 
 -   name: add nodes to zone
     ansible.posix.firewalld:
         source: "{{ item }}"
         zone: "{{ zone }}"
         state: enabled
+        permanent: true
     loop: "{{ nodes }}"
 
 -   name: enable ports
@@ -32,7 +38,7 @@
     ansible.posix.firewalld:
         zone: "{{ zone }}"
         service: "{{ service }}"
-        state: enable
+        state: enabled
         permanent: true
     when: service is defined
 

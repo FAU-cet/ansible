@@ -7,7 +7,7 @@
 
     -   role: folder
         vars:
-            path: "srv/exports/home"
+            path: "/srv/exports/home"
 
     -   role: enable-firewall-ports
         vars:
@@ -16,8 +16,13 @@
     -   role: share-nfs
         vars:
             path: "/srv/exports/home"
+            client: "localhost"
+            mode: "rw,no_root_squash"
+
+    -   role: share-nfs
+        vars:
+            path: "/srv/exports/home"
             clients:
-            -   "localhost"
             -   "cs3-emmy-8"
             -   "cs3-emmy-9"
             -   "cs3-emmy-10"
@@ -56,7 +61,7 @@
 
     -   role: mount-nfs
         vars:
-            serverPath: "srv/exports/software"
+            serverPath: "/srv/exports/software"
             clientPath: "/software"
             server: "localhost"
 
