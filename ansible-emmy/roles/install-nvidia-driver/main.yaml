@@ -1,5 +1,6 @@
 ---
--   name: Install dependencies for dirvers
+#https://docs.nvidia.com/datacenter/tesla/pdf/NVIDIA_Driver_Installation_Quickstart.pdf
+-   name: Install dependencies for dirvers # steps 1,2,5
     ansible.builtin.dnf:
         name:
         -   tar
@@ -12,12 +13,18 @@
         -   elfutils-libelf-devel
         -   libgivnd-devel
         -   epel-release
+        -   kernel-devel
+        -   kernal-headers
         state: present
 
--   name: enable CBR (Powertools)
+-   name: enable CBR (Powertools) # step 2
     ansible.builtin.command:
         cmd: dnf config-manager --set-enabled crb
 
 -   name: add cuda repo
-    ansible.builtin.command:
+    ansible.builtin.command: #steps 3, 4
         cmd: dnf config-manager --add-repo http://developer.download.nvidia.com/compute/cuda/repos/rhel9/x86_64/cuda-rhel9.repo
+
+-   name: Install nvidia dirver module
+    ansible.builtin.dnf:
+        name: "@nvidia-dirver:latest-dkms"
