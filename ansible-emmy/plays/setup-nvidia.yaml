@@ -1,0 +1,12 @@
+---
+-   name: install nvidia GPU driver (v100)
+    hosts: v100
+
+    roles:
+    -   role: install-nvidia-driver
+
+-   name: install nvidia GPU driver (v100)
+    hosts: k20m
+
+    roles:
+    -   role: install-nvidia-driver

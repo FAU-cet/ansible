@@ -11,10 +11,10 @@
         -   gcc-c++
         -   pciutils
         -   elfutils-libelf-devel
-        -   libgivnd-devel
+        -   libglvnd-devel
         -   epel-release
         -   kernel-devel
-        -   kernal-headers
+        -   kernel-headers
         state: present
 
 -   name: enable CBR (Powertools) # step 2
@@ -27,4 +27,4 @@
 
 -   name: Install nvidia dirver module
     ansible.builtin.dnf:
-        name: "@nvidia-dirver:latest-dkms"
+        name: "@nvidia-driver:latest-dkms"
