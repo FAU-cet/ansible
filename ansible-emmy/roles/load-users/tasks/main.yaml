@@ -1,3 +1,3 @@
 ---
 -   name: execute the export script
-  ansible.builtin.shell: python sucopra/ansible/load-users-yaml.py > sucopra/ansible/user-export.yaml
+    ansible.builtin.shell: python sucopra/ansible/load-users-yaml.py > sucopra/ansible/user-export.yaml

@@ -1,2 +1,0 @@
-config: "--with-openssl-prefix=/usr/local/ssl" #"--with-crypto-lib=libgcrypt"
-#defaults from https://github.com/dun/munge/wiki/Installation-Guide

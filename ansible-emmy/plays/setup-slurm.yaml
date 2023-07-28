@@ -21,11 +21,16 @@
             -   7012
             -   7013
 
--   name: install slurm and dependend munge on head node
-    hosts: head
+-   name: install munge for slurm
+    hosts: all
 
     roles:
     -   role: install-munge
+
+-   name: install slurm on head node
+    hosts: head
+
+    roles:
     -   role: install-slurm
         vars:
             path: "/root/slurm"
@@ -35,11 +40,10 @@
             services:
             -   munge.service
 
--   name: install slurm and dependend munge on com node (slurm.rpm form head)
+-   name: install slurm on com nodes (slurm.rpm form head)
     hosts: com
 
     roles:
-    -   role: install-munge
     -   role: install-slurm-from-head
     -   role: munge-key-roleout
     -   role: enable-autostart

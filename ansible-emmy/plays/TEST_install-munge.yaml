@@ -1,8 +1,0 @@
----
--   name: install munge
-    hosts: v100
-
-    roles:
-    -   role: install-nvidia-driver
-    -   role: install-munge
-
