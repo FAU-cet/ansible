@@ -5,6 +5,7 @@
         home: "{{ homePath }}/{{ item.name }}"
         create_home: true
         password: "{{ item.name | password_hash('sha512') }}"
+        update_password: on_create
     loop: "{{users}}"
 
 -   name: let user password expire now

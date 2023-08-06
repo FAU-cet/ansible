@@ -4,6 +4,7 @@
 
     roles:
     -   role: update
+    -   role: enable-repos
 
 -   name: create users for slurm and munge
     hosts: all
