@@ -19,6 +19,11 @@
             client: "localhost"
             mode: "rw,no_root_squash"
 
+    -   role: enable-autostart
+        vars:
+            services:
+            -   nfs-server
+
     -   role: share-nfs
         vars:
             path: "/srv/exports/home"

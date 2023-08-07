@@ -1,0 +1,13 @@
+---
+-   name: load users from head node
+    hosts: head
+
+    roles:
+    -   role: load-users
+
+-   name: create loaded users on com nodes
+    vars_files:
+    -   /tmp/user-exports.yaml
+
+    roles:
+    -   role: create-users

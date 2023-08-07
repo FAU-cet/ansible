@@ -23,4 +23,3 @@
     ansible.builtin.service:
         name: nfs-server
         state: restarted
-        enabled: yes

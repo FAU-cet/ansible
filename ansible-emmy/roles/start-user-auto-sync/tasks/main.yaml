@@ -1,0 +1,6 @@
+---
+-   name: set cronjob that calls sync-users playbook
+    ansilbe.builtin.cron:
+        name: "sync-users"
+        job: "ansilbe-playbook {{ syncPlaybook }}"
+        special_time: "hourly"

@@ -18,3 +18,10 @@
         vars:
             serverPath: "/srv/exports/software"
             clientPath: "/software"
+
+-   name: sync users form head to com and repeat automatikly
+    hosts: head
+
+    roles:
+    -   role: start-user-auto-sync
+
