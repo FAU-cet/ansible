@@ -76,3 +76,4 @@
 
     -   role: create-users-with-tmp-passwd
     -   role: dye-prompt
+    -   role: enable-repos

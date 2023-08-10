@@ -1,4 +1,5 @@
 -   name: test
-    hosts: head
+    hosts: cs3-emmy-12
     roles:
-    -   role: test_vars
+    -   role: install-nvidia-driver-legacy
+

@@ -30,7 +30,7 @@
     ansible.posix.firewalld:
         zone: "{{ zone }}"
         port: "{{ port }}/{{ protocol }}"
-        state: enable
+        state: enabled
         permanent: true
     when: port is defined
 

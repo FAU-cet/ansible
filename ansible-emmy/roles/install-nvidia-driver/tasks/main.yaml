@@ -13,13 +13,14 @@
         -   elfutils-libelf-devel
         -   libglvnd-devel
         -   epel-release
-        -   kernel-devel
-        -   kernel-headers
         state: present
 
--   name: enable CBR (Powertools) # step 2
-    ansible.builtin.command:
-        cmd: dnf config-manager --set-enabled crb
+-   name: Install packets in special version
+    ansible.builtin.dnf:
+        name:
+        -   "kernel-devel-{{ ansible_kernel }}"
+        -   "kernel-headers-{{ ansible_kernel }}"
+        allow_downgrade: true
 
 -   name: add cuda repo
     ansible.builtin.command: #steps 3, 4

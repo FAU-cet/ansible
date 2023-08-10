@@ -3,3 +3,6 @@
     ansible.builtin.file:
         path: "{{ path }}"
         state: directory
+        mode: "{{ mode }}"
+        owner: "{{ owner }}"
+        group: "{{ owner }}"

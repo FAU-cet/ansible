@@ -32,6 +32,10 @@
     hosts: head
 
     roles:
+    -   role: folder
+        vars:
+            path: "/var/log/slurm"
+            owner: "slurm"
     -   role: install-slurm
         vars:
             path: "/root/slurm"
@@ -76,4 +80,12 @@
         vars:
             services:
             -   slurmd
+
+-   name: enable firewall for srun
+    hosts: all
+
+    roles:
+    -   role: enable-firewall-ports #dam it
+        vars:
+            port: "1023-65535"
 

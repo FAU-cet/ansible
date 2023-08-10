@@ -6,8 +6,11 @@
     -   role: load-users
 
 -   name: create loaded users on com nodes
+    hosts: com
     vars_files:
     -   /tmp/user-exports.yaml
 
     roles:
     -   role: create-users
+        vars:
+            homePath: "/home/users/"

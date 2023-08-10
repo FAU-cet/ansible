@@ -3,6 +3,8 @@
     ansible.builtin.dnf:
         name: "*"
         state: latest
+        skip_broken: true #kotz
+        nobest: true #kotz
 
 -   name: gather the package facts
     ansible.builtin.package_facts:

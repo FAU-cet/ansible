@@ -11,3 +11,4 @@ users:
 -   name: "mo66tufu"
     uid: 1003
     pwhash: "!!"
+homePath: "/home/users"

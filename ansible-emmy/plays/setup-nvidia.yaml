@@ -3,10 +3,14 @@
     hosts: v100
 
     roles:
+    -   role: enable-repos
+    -   role: block-nouveau
     -   role: install-nvidia-driver
 
--   name: install nvidia GPU driver (v100)
+-   name: install nvidia GPU driver (k20m)
     hosts: k20m
 
     roles:
-    -   role: install-nvidia-driver
+    -   role: enable-repos
+    -   role: block-nouveau
+    -   role: install-nvidia-driver-legacy

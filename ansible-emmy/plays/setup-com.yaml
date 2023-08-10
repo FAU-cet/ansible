@@ -4,6 +4,7 @@
 
     roles:
     -   role: update
+    -   role: enable-repos
 
     -   role: mount-nfs
         vars:
