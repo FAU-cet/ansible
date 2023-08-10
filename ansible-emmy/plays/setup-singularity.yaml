@@ -1,0 +1,7 @@
+---
+-   name: setup singularity
+    hosts: com
+
+    roles:
+    -   role: install-singularity
+
