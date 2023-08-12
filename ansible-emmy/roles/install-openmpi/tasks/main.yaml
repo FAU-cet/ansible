@@ -27,3 +27,5 @@
     community.general.make:
         chdir: /root/openmpi/openmpi-4.1.5
         target: install
+
+#--with-slurm --with-pmi=/usr/include/slurm --with-pmi-libdir=/usr
