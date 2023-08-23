@@ -19,3 +19,13 @@
     ansible.builtin.copy:
         dest: /srv/exports/software/modulefiles/openmpi/openmpi-4.1.5.lua
         src: openmpi-4.1.5.lua
+
+-   name: add nvcc-12.2 modulefile folder
+    ansible.builtin.file:
+        path: /srv/exports/software/modulefiles/nvcc/
+        state: directory
+
+-   name: add nvcc-12.2 modulefile
+    ansible.builtin.copy:
+        dest: /srv/exports/software/modulefiles/nvcc/nvcc-12.2.0.535.54.03_linux.lua
+        src: nvcc-12.2.0.535.54.03_linux.lua
