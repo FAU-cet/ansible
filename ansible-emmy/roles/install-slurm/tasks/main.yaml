@@ -28,13 +28,13 @@
 
     -   name: rpmbuild
         ansible.builtin.command:
-            cmd: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2 --without mysql"
+            cmd: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2 --without mysql --define '--with-pmix=/lib64'" #TODO
             creates: "~/rpmbuild/RPMS/x86_64/slurm*.rpm"
         when: not rebuild
 
     -   name: rebuild rpmbuild
         ansible.builtin.command:
-            cmd: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2 --without mysql"
+            cmd: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2 --without mysql --define '--with-pmix=/lib64'" #TODO
         when: rebuild
 
     -   name: rpm install files

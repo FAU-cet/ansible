@@ -1,5 +1,6 @@
 -   name: test
-    hosts: cs3-emmy-12
+    hosts: cs3-emmy-11
     roles:
-    -   role: install-nvidia-driver-legacy
+    -   role: install-libevent
+    -   role: install-pmix
 

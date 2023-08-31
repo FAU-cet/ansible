@@ -1,0 +1,41 @@
+---
+-   name: download dependentces for pmix
+    ansible.builtin.dnf:
+        name:
+        -   m4
+        -   autoconf
+        -   automake
+        -   libtool
+        -   flex
+        -   libevent
+        state: latest
+
+-   name: download the git repo
+    ansible.builtin.git:
+        repo: 'https://github.com/pmix/pmix'
+        dest: /root/pmix
+
+-   name: autogen
+    ansible.builtin.shell: ./autogen.pl
+    args:
+        chdir: /root/pmix
+
+-   name: create build dir
+    ansible.builtin.file:
+        path: /root/pmix/build
+        state: directory
+
+-   name: configure
+    ansible.builtin.shell: ../configure
+    args:
+        chdir: /root/pmix/build
+
+-   name: build pmix
+    community.general.make:
+        chdir: /root/pmix/build
+        target: all
+
+-   name: install pmix
+    community.general.make:
+        chdir: /root/pmix/build
+        target: install

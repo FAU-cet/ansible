@@ -22,11 +22,12 @@
             -   7012
             -   7013
 
--   name: install munge for slurm
+-   name: install munge and pmix for slurm
     hosts: all
 
     roles:
     -   role: install-munge
+    -   role: install-pmix
 
 -   name: install slurm on head node
     hosts: head
