@@ -8,6 +8,7 @@
         -   libtool
         -   flex
         -   libevent
+        -   git
         state: latest
 
 -   name: download the git repo
@@ -19,6 +20,7 @@
     ansible.builtin.shell: ./autogen.pl
     args:
         chdir: /root/pmix
+        creates: /root/pmix/configure
 
 -   name: create build dir
     ansible.builtin.file:
@@ -29,6 +31,7 @@
     ansible.builtin.shell: ../configure
     args:
         chdir: /root/pmix/build
+        creates: /root/pmix/build/Makefile
 
 -   name: build pmix
     community.general.make:

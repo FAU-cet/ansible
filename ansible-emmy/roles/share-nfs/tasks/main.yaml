@@ -8,7 +8,7 @@
     ansible.builtin.lineinfile:
         path: /etc/exports
         line: "{{ path }} {{ client }}({{ mode }},sync)"
-    when: clients is undefined
+    when: client is defined
 
 -   name: share folder for multiple clients
     ansible.builtin.lineinfile:

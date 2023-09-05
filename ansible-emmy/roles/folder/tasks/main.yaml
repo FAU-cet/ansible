@@ -3,6 +3,6 @@
     ansible.builtin.file:
         path: "{{ path }}"
         state: directory
-        mode: "{{ mode }}"
+        mode: '1750'
         owner: "{{ owner }}"
         group: "{{ owner }}"

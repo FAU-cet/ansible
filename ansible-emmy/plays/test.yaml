@@ -1,6 +1,5 @@
 -   name: test
-    hosts: cs3-emmy-10
+    hosts: all
     roles:
-    -   role: install-libevent
-    -   role: install-pmix
+    -   role: disable-IB
 

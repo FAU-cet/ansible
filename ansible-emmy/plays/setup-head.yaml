@@ -30,7 +30,6 @@
             clients:
             -   "cs3-emmy-8"
             -   "cs3-emmy-9"
-            #-   "cs3-emmy-10"
             -   "cs3-emmy-12"
             -   "cs3-emmy-13"
             -   "cs3-emmy-14"
@@ -58,7 +57,6 @@
             clients:
             -   "cs3-emmy-8"
             -   "cs3-emmy-9"
-            #-   "cs3-emmy-10"
             -   "cs3-emmy-12"
             -   "cs3-emmy-13"
             -   "cs3-emmy-14"
