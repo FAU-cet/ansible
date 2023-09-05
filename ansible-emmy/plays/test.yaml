@@ -1,5 +1,5 @@
 -   name: test
-    hosts: cs3-emmy-11
+    hosts: cs3-emmy-10
     roles:
     -   role: install-libevent
     -   role: install-pmix
