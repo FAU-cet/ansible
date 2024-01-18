@@ -43,6 +43,11 @@
 
     -   role: folder
         vars:
+            path: "/home/users"
+            mode: "755"
+
+    -   role: folder
+        vars:
             path: "/srv/exports/software"
 
     -   role: share-nfs

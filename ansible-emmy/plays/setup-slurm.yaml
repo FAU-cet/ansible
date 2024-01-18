@@ -28,7 +28,7 @@
     roles:
     -   role: install-munge
     -   role: install-libevent
-    -   role: install-pmix
+    #-   role: install-pmix
 
 -   name: install slurm on head node
     hosts: head
