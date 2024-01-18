@@ -2,5 +2,5 @@
 -   name: set cronjob that calls sync-users playbook
     ansible.builtin.cron:
         name: "sync-users"
-        job: "ansilbe-playbook {{ syncPlaybook }}"
+        job: "ansible-playbook {{ syncPlaybook }}"
         special_time: "hourly"

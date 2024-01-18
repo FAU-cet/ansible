@@ -1,1 +1,1 @@
-syncPlaybook: "/root/sucopra/ansilbe-emmy/plays/sync-users.yaml"
+syncPlaybook: "/root/sucopra/ansible-emmy/plays/sync-users.yaml"
