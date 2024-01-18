@@ -11,6 +11,11 @@
             serverPath: "/srv/exports/home"
             clientPath: "/home/users"
 
+    -   role: folder
+        vars:
+            path: "/home/users"
+            mode: "755"
+
     -   role: selinux
         vars:
             plice: "use_nfs_home_dirs"
@@ -19,6 +24,11 @@
         vars:
             serverPath: "/srv/exports/software"
             clientPath: "/software"
+
+    -   role: folder
+        vars:
+            path: "/software"
+            mode: "755"
 
 -   name: sync users form head to com and repeat automatikly
     hosts: head
