@@ -7,71 +7,53 @@
 
     -   role: folder
         vars:
-            path: "/srv/exports/home"
+            path: "/home/users"
+            mode: "755"
 
     -   role: enable-firewall-ports
         vars:
             service: "nfs"
 
-    -   role: share-nfs
+    -   role: enable-firewall-ports
         vars:
-            path: "/srv/exports/home"
-            client: "localhost"
-            mode: "rw,no_root_squash"
+            service: "rpc-bind"
 
-    -   role: enable-autostart
+    -   role: enable-firewall-ports
         vars:
-            services:
-            -   nfs-server
+            service: "mountd"
 
     -   role: share-nfs
         vars:
-            path: "/srv/exports/home"
+            path: "/home/users"
             clients:
+            -   "cs3-emmy-0"
+            -   "cs3-emmy-1"
+            -   "cs3-emmy-3"
             -   "cs3-emmy-8"
-            -   "cs3-emmy-9"
-            -   "cs3-emmy-12"
-            -   "cs3-emmy-13"
-            -   "cs3-emmy-14"
-            -   "cs3-emmy-15"
-
-    -   role: mount-nfs
-        vars:
-            serverPath: "/srv/exports/home"
-            clientPath: "/home/users"
-            server: "localhost"
 
     -   role: folder
         vars:
             path: "/home/users"
             mode: "755"
 
+    -   role: share-nfs
+        vars:
+            path: "/apps"
+            clients:
+            -   "cs3-emmy-0"
+            -   "cs3-emmy-1"
+            -   "cs3-emmy-3"
+            -   "cs3-emmy-8"
+
     -   role: folder
         vars:
-            path: "/srv/exports/software"
+            path: "/apps"
+            mode: "755"
 
-    -   role: share-nfs
+    -   role: enable-autostart
         vars:
-            path: "/srv/exports/software"
-            client: "localhost"
-            mode: "rw,no_root_squash"
-
-    -   role: share-nfs
-        vars:
-            path: "/srv/exports/software"
-            clients:
-            -   "cs3-emmy-8"
-            -   "cs3-emmy-9"
-            -   "cs3-emmy-12"
-            -   "cs3-emmy-13"
-            -   "cs3-emmy-14"
-            -   "cs3-emmy-15"
-
-    -   role: mount-nfs
-        vars:
-            serverPath: "/srv/exports/software"
-            clientPath: "/software"
-            server: "localhost"
+            services:
+            -   nfs-server
 
     -   role: selinux
         vars:

@@ -8,7 +8,7 @@
 
     -   role: mount-nfs
         vars:
-            serverPath: "/srv/exports/home"
+            serverPath: "/home/users"
             clientPath: "/home/users"
 
     -   role: folder
@@ -22,12 +22,12 @@
 
     -   role: mount-nfs
         vars:
-            serverPath: "/srv/exports/software"
-            clientPath: "/software"
+            serverPath: "/apps"
+            clientPath: "/apps"
 
     -   role: folder
         vars:
-            path: "/software"
+            path: "/apps"
             mode: "755"
 
 -   name: sync users form head to com and repeat automatikly
