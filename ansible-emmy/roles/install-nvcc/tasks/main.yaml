@@ -1,9 +1,15 @@
 ---
 -   name: download runfile
     ansible.builtin.get_url:
-        url: https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda_12.2.0_535.54.03_linux.run
-        dest: /root/cuda_12.2.0_535.54.03_linux.run
+        url: "{{ link }}"
+        dest: /root/cudaInstaller.run
         mode: '0700'
 
+-   name: install gcc
+    ansible.builtin.dnf:
+        name: gcc
+        state: present
+
 -   name: install cuda
-    ansible.builtin.shell: /root/cuda_12.2.0_535.54.03_linux.run --silent --toolkit --toolkitpath=/srv/exports/software/cuda-12.2 --samples --samplespath=/srv/exports/software/cuda-12.2/samples
+    ansible.builtin.shell:
+        cmd: "/root/cudaInstaller.run --silent --toolkit --toolkitpath={{ install_path }} --samples --samplespath={{ install_path }}/samples"
