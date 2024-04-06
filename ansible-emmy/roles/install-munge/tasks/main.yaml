@@ -1,34 +1,8 @@
 ---
--   name: install depend for slurm
+-   name: install munge depend for slurm
     ansible.builtin.dnf:
         name:
-        -   rpm-build
-        -   gcc
-        -   python3
-        -   openssl
-        -   openssl-devel
-        -   numactl
-        -   numactl-devel
-        -   hwloc
-        -   hwloc-devel
-        -   lua
-        -   lua-devel
-        -   rrdtool-devel
-        -   ncurses-devel
-        -   gtk2-devel
-        -   libibmad
-        -   libibumad
-        -   perl-Switch
-        -   perl-ExtUtils-MakeMaker
-        -   xorg-x11-xauth
-        -   http-parser-devel
-        -   json-c-devel
         -   munge
         -   munge-devel
         -   munge-libs
-        -   pam-devel
-        -   readline-devel
-        -   mariadb-server
-        -   mariadb-devel
-        -   dbus-devel
         state: present

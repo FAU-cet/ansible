@@ -16,25 +16,31 @@
             url: "https://download.schedmd.com/slurm/slurm-23.02.2.tar.bz2"
             dest: "{{ path }}"
 
-#    -   name: install rpm-build  #lol use less
-#        ansible.builtin.dnf:
-#            name: rpm-build
-#            state: present
+    -   name: install rpm-build  #lol use less
+        ansible.builtin.dnf:
+            name: rpm-build
+            state: present
 #
 #    -   name: copy .rpmmacros
 #        ansible.builtin.copy:
 #            src: ".rpmmacros"
 #            dest: "/root"
+    -   name: install dependet for slurm
+        ansible.builtin.dnf:
+            name:
+            -   pam-devel
+            -   perl
+            -   readline-devel
 
     -   name: rpmbuild
         ansible.builtin.command:
-            cmd: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2 --without mysql --define '--with-pmix /lib64'" #TODO
+            cmd: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2 --without mysql --define '--with-pmix /usr/local'" #TODO
             creates: "~/rpmbuild/RPMS/x86_64/slurm*.rpm"
         when: not rebuild
 
     -   name: rebuild rpmbuild
         ansible.builtin.command:
-            cmd: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2 --without mysql --define '--with-pmix /lib64'" #TODO
+            cmd: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2 --without mysql --define '--with-pmix /usr/local'" #TODO
         when: rebuild
 
     -   name: rpm install files

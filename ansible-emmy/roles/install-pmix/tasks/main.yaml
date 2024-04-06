@@ -9,7 +9,9 @@
         -   flex
         -   libevent
         -   git
-        state: latest
+        -   hwloc
+        -   hwloc-devel
+        state: present
 
 -   name: download the git repo
     ansible.builtin.git:
@@ -28,8 +30,8 @@
         state: directory
 
 -   name: configure
-    ansible.builtin.shell: ../configure
-    args:
+    ansible.builtin.shell:
+        cmd: "../configure --prefix={{ path }}"
         chdir: /root/pmix/build
         creates: /root/pmix/build/Makefile
 
