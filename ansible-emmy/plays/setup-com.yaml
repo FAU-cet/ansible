@@ -5,6 +5,9 @@
     roles:
     -   role: update
     -   role: enable-repos
+    -   role: enable-firewall-ports
+        vars:
+            service: ssh
 
     -   role: mount-nfs
         vars:

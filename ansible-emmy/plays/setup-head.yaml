@@ -30,6 +30,8 @@
             -   "cs3-emmy-1"
             -   "cs3-emmy-3"
             -   "cs3-emmy-8"
+            -   "cs3-emmy-14"
+            -   "cs3-emmy-15"
 
     -   role: folder
         vars:
@@ -44,6 +46,8 @@
             -   "cs3-emmy-1"
             -   "cs3-emmy-3"
             -   "cs3-emmy-8"
+            -   "cs3-emmy-14"
+            -   "cs3-emmy-15"
 
     -   role: folder
         vars:

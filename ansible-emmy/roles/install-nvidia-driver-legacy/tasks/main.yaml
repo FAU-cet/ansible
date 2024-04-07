@@ -9,5 +9,12 @@
         url: https://us.download.nvidia.com/XFree86/Linux-x86_64/470.199.02/NVIDIA-Linux-x86_64-470.199.02.run
         dest: /root/
 
+-   name: install gcc and kernel-devel
+    ansible.builtin.dnf:
+        name:
+        -   gcc
+        -   kernel-devel
+        state: present
+
 -   name: exec run file
     ansible.builtin.shell: sh NVIDIA-Linux-x86_64-470.199.02.run -s
