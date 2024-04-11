@@ -1,4 +1,8 @@
 ---
+-   name: install
+    ansible.builtin.dnf:
+        name: mariadb
+
 -   name: create folder
     ansible.builtin.file:
         path: "/root/rpmbuild/RPMS/x86_64"
@@ -16,7 +20,7 @@
         manager: rpm
 
 -   name: rpm install files
-    ansible.builtin.command: "rpm --install /root/rpmbuild/RPMS/x86_64/{{ item }}-23.02.2-1.el9.x86_64.rpm" #installtion will be in home of buiding user
+    ansible.builtin.command: "rpm --install /root/rpmbuild/RPMS/x86_64/{{ item }}-23.11.5-1.el9.x86_64.rpm" #installtion will be in home of buiding user
     when: "item | string not in ansible_facts.packages"
     with_items:
     -   slurm
@@ -32,7 +36,7 @@
     -   slurm-openlava
 
 -   name: rpm reinstall files
-    ansible.builtin.command: "rpm --reinstall /root/rpmbuild/RPMS/x86_64/{{ item }}-23.02.2-1.el9.x86_64.rpm"
+    ansible.builtin.command: "rpm --reinstall /root/rpmbuild/RPMS/x86_64/{{ item }}-23.11.5-1.el9.x86_64.rpm"
     when:
     -   "item | string in ansible_facts.packages"
     -   reinstall

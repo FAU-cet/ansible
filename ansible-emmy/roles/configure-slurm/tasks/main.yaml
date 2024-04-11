@@ -8,7 +8,7 @@
 
 -   name: copy slurm.conf to nodes
     ansible.builtin.copy:
-        src: "{{ slurm-conf-src-path }}"
+        src: slurm.conf
         dest: /etc/slurm/slurm.conf
     register: newConfig
 

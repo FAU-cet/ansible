@@ -6,7 +6,7 @@
 
 -   name: download run file
     ansible.builtin.get_url:
-        url: https://us.download.nvidia.com/XFree86/Linux-x86_64/470.199.02/NVIDIA-Linux-x86_64-470.199.02.run
+        url: https://us.download.nvidia.com/tesla/535.161.08/NVIDIA-Linux-x86_64-535.161.08.run
         dest: /root/
 
 -   name: install gcc and kernel-devel
@@ -17,4 +17,4 @@
         state: present
 
 -   name: exec run file
-    ansible.builtin.shell: sh NVIDIA-Linux-x86_64-470.199.02.run -s
+    ansible.builtin.shell: sh NVIDIA-Linux-x86_64-535.161.08.run -s

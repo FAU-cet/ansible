@@ -13,7 +13,7 @@
 
     -   name: download tar
         ansible.builtin.get_url:
-            url: "https://download.schedmd.com/slurm/slurm-23.02.2.tar.bz2"
+            url: "https://download.schedmd.com/slurm/slurm-23.11.5.tar.bz2"
             dest: "{{ path }}"
 
     -   name: install rpm-build  #lol use less
@@ -34,17 +34,17 @@
 
     -   name: rpmbuild
         ansible.builtin.command:
-            cmd: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2 --without mysql --define '--with-pmix /usr/local'" #TODO
+            cmd: "rpmbuild -ta {{ path }}/slurm-23.11.5.tar.bz2 --without mysql " #TODO
             creates: "~/rpmbuild/RPMS/x86_64/slurm*.rpm"
         when: not rebuild
 
     -   name: rebuild rpmbuild
         ansible.builtin.command:
-            cmd: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2 --without mysql --define '--with-pmix /usr/local'" #TODO
+            cmd: "rpmbuild -ta {{ path }}/slurm-23.11.5.tar.bz2 --without mysql " #TODO
         when: rebuild
 
     -   name: rpm install files
-        ansible.builtin.command: "rpm --install /root/rpmbuild/RPMS/x86_64/{{ item }}-23.02.2-1.el9.x86_64.rpm" #installtion will be in home of buiding user
+        ansible.builtin.command: "rpm --install /root/rpmbuild/RPMS/x86_64/{{ item }}-23.11.5-1.el9.x86_64.rpm" #installtion will be in home of buiding user
         when: "item | string not in ansible_facts.packages"
         with_items:
         -   slurm
