@@ -1,1 +1,1 @@
-mode: "rw"
+mode: "rw,no_root_squash"
