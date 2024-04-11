@@ -1,4 +1,4 @@
-local base = pathJoin("/software/cuda-12.2/")
+local base = pathJoin("/apps/cuda-12.4/")
 
 family("nvcc")
 

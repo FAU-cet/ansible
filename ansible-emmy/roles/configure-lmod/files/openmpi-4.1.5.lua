@@ -1,4 +1,4 @@
-local base = pathJoin("/software/openmpi/openmpi-4.1.5")
+local base = pathJoin("/apps/openmpi/openmpi-4.1.5")
 
 family("openmpi")
 

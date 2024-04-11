@@ -1,1 +1,1 @@
-export MODULEPATH=/software/modulefiles:$MODULEPATH
+export MODULEPATH=/apps/modulefiles:$MODULEPATH

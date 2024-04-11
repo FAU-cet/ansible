@@ -5,14 +5,6 @@
     roles:
       -   role: install-lmod
 
-#-   name: install gcc-12.2.0 in exports
-#    hosts: head
-#
-#    roles:
-#      -   role: install-gcc
-#          vars:
-#              ver: "12.2.0"
-
 -   name: config lmod on head on nfs
     hosts: head
     roles:
