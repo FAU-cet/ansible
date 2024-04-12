@@ -23,21 +23,21 @@
 -   name: add oneMKL folder
     ansible.builtin.file:
         path: /apps/modulefiles/oneMKL
-        state: folder
+        state: directory
 
 -   name: add oneMKL modulefile
-    ansible.builtin.file:
-        path: /apps/modulefiles/oneMKL/oneMKL-2024.1.lua
-        state: oneMKL-2024.1.lua
+    ansible.builtin.copy:
+        dest: /apps/modulefiles/oneMKL/oneMKL-2024.1.lua
+        src: oneMKL-2024.1.lua
 
 -   name: add intelmpi folder
     ansible.builtin.file:
         path: /apps/modulefiles/intelmpi/
-        state: folder
+        state: directory
 
 -   name: add intelmpi modulefile
-    ansible.builtin.file:
-        path: /apps/modulefiles/intelmpi/intelmpi-2021.12.lua
+    ansible.builtin.copy:
+        dest: /apps/modulefiles/intelmpi/intelmpi-2021.12.lua
         src: intelmpi-2021.12.lua
 
 -   name: add icc modulefile folder
@@ -46,6 +46,6 @@
         state: directory
 
 -   name: add icc modulefile
-    ansible.builtin.file:
-        path: /apps/modulefiles/icc/icc-2024.1.lua
+    ansible.builtin.copy:
+        dest: /apps/modulefiles/icc/icc-2024.1.lua
         src: icc-2024.1.lua

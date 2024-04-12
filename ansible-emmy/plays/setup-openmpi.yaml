@@ -1,4 +1,4 @@
----# not before installing Slurm!
+--- # not before installing Slurm!
 -   name: install openMPI
     hosts: head
 
