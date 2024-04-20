@@ -1,0 +1,6 @@
+---# not before installing Slurm!
+-   name: install openMPI
+    hosts: head
+
+    roles:
+    -   role: install-openmpi

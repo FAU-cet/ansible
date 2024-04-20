@@ -1,0 +1,13 @@
+---
+-   name: setup singularity
+    hosts: all
+
+    roles:
+    -   role: install-singularity
+
+-   name: setup singularity CUDA support
+    hosts: gpu
+
+    roles:
+    -   role: install-gpu-for-singularity
+

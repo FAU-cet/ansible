@@ -1,0 +1,19 @@
+--- #all vars have defaults
+-   name: creaet home dir folder
+    ansible.builtin.file:
+        path: "{{ homeFolder }}"
+        state: directory
+
+-   name: create slurm user
+    ansible.builtin.user:
+        name: slurm
+        uid: "{{ uidSlurm }}"
+        home: "{{ homeFolder }}/slurm"
+
+-   name: create munge user
+    ansible.builtin.user:
+        name: munge
+        uid: "{{ uidMunge }}"
+        home: "{{ homeFolder }}/munge"
+        shell: "/usr/sbin/nologin"
+

@@ -1,0 +1,68 @@
+---
+-   name: setup Head
+    hosts: head
+
+    roles:
+    -   role: update
+
+    -   role: folder
+        vars:
+            path: "/home/users"
+            mode: "755"
+
+    -   role: enable-firewall-ports
+        vars:
+            service: "nfs"
+
+    -   role: enable-firewall-ports
+        vars:
+            service: "rpc-bind"
+
+    -   role: enable-firewall-ports
+        vars:
+            service: "mountd"
+
+    -   role: share-nfs
+        vars:
+            path: "/home/users"
+            clients:
+            -   "cs3-emmy-0"
+            -   "cs3-emmy-1"
+            -   "cs3-emmy-3"
+            -   "cs3-emmy-8"
+            -   "cs3-emmy-14"
+            -   "cs3-emmy-15"
+
+    -   role: folder
+        vars:
+            path: "/home/users"
+            mode: "755"
+
+    -   role: share-nfs
+        vars:
+            path: "/apps"
+            clients:
+            -   "cs3-emmy-0"
+            -   "cs3-emmy-1"
+            -   "cs3-emmy-3"
+            -   "cs3-emmy-8"
+            -   "cs3-emmy-14"
+            -   "cs3-emmy-15"
+
+    -   role: folder
+        vars:
+            path: "/apps"
+            mode: "755"
+
+    -   role: enable-autostart
+        vars:
+            services:
+            -   nfs-server
+
+    -   role: selinux
+        vars:
+            plice: "use_nfs_home_dirs"
+
+    -   role: create-users-with-tmp-passwd
+    -   role: dye-prompt
+    -   role: enable-repos

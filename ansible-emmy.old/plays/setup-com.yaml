@@ -1,0 +1,41 @@
+---
+-   name: setup compute node
+    hosts: com
+
+    roles:
+    -   role: update
+    -   role: enable-repos
+    -   role: enable-firewall-ports
+        vars:
+            service: ssh
+
+    -   role: mount-nfs
+        vars:
+            serverPath: "/home/users"
+            clientPath: "/home/users"
+
+    -   role: folder
+        vars:
+            path: "/home/users"
+            mode: "755"
+
+    -   role: selinux
+        vars:
+            plice: "use_nfs_home_dirs"
+
+    -   role: mount-nfs
+        vars:
+            serverPath: "/apps"
+            clientPath: "/apps"
+
+    -   role: folder
+        vars:
+            path: "/apps"
+            mode: "755"
+
+-   name: sync users form head to com and repeat automatikly
+    hosts: head
+
+    roles:
+    -   role: start-user-auto-sync
+

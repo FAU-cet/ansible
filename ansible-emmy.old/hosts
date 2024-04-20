@@ -1,0 +1,17 @@
+all:
+    children:
+        head:
+            hosts:
+                cs3-emmy-10:
+        com:
+            hosts:
+                cs3-emmy-0:
+                cs3-emmy-1:
+                cs3-emmy-3:
+                cs3-emmy-8:
+        v100:
+            hosts:
+                cs3-emmy-0:
+                cs3-emmy-1:
+                cs3-emmy-3:
+                cs3-emmy-8:
