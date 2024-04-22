@@ -1,0 +1,3 @@
+---
+-   name: execute the export script
+    ansible.builtin.shell: "python sucopra/ansible-emmy/load-users-yaml.py > {{ exportPath }}"

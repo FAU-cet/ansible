@@ -1,0 +1,5 @@
+-   name: test
+    hosts: head
+    roles:
+    -   role: test_vars
+

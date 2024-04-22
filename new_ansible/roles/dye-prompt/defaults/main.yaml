@@ -1,0 +1,11 @@
+colorScheme: '\[\e]0;\u@\h: \w\a\]\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+users:
+-   name: ev81wotu
+-   name: mi05jelo
+-   name: uk78ilop
+-   name: ji04suse
+-   name: ed86uzaf
+-   name: iv40egyq
+
+homePath: "/home/users"
