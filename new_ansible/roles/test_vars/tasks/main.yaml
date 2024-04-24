@@ -1,21 +1,6 @@
 ---
--   name: test
-    ansible.builtin.debug:
-        msg: "{{ ansible_facts.default_ipv4.address }}/{{ ansible_facts.default_ipv4.prefix }}"
-
--   name: gather facts for all nodes
-    ansible.builtin.setup:
-    delegate_to: "{{ item }}"
-    delegate_facts: true
-    with_inventory_hostnames:
-    -   all
-    ignore_unreachable: true
-
--   name: loop over all node and ignore indiviula failurs
-    block:
-    -   name: print IP for all nodes
-        ansible.builtin.debug:
-            msg: "{{ hostvars[item]['ansible_default_ipv4']['address'] }}/{{ hostvars[item]['ansible_default_ipv4']['prefix'] }}"
-        ignore_errors: true
+-   name: get IP addresses for all nodes
+    ansible.builtin.include_tasks:
+        file: getIP.yaml
     with_inventory_hostnames:
     -   all

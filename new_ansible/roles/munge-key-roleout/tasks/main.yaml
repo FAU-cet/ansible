@@ -16,7 +16,7 @@
     ansible.posix.synchronize:
         src: "/etc/munge/munge.key"
         dest: "/etc/munge/munge.key" #why? "/usr/local/etc/munge/munge.key"
-    delegate_to: "{{ head }}"
+    delegate_to: "{{ groups.head[0] }}"
 
 -   name: set ownership for key file
     ansible.builtin.file:

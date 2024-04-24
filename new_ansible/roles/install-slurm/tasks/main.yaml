@@ -32,11 +32,9 @@
             -   perl
             -   readline-devel
             -   mariadb-devel
+            -   dbus-devel #fuck is important for cgroup
 
     -   name: rpmbuild
-        ansible.builtin.command:
-            cmd: "rpmbuild -ta {{ path }}/slurm-23.11.5.tar.bz2 --without mysql "
-
         ansible.builtin.command:
             cmd: "rpmbuild -ta {{ path }}/slurm-23.11.5.tar.bz2 --without mysql " #TODO
             creates: "~/rpmbuild/RPMS/x86_64/slurm*.rpm"
@@ -44,6 +42,7 @@
 
     -   name: rebuild rpmbuild
         ansible.builtin.command:
+            cmd: "rpmbuild -ta {{ path }}/slurm-23.11.5.tar.bz2 --without mysql " #TODO
         when: rebuild
 
     -   name: rpm install files
@@ -63,7 +62,7 @@
         -   slurm-openlava
 
     -   name: rpm reinstall files
-        ansible.builtin.command: "rpm --reinstall /root/rpmbuild/RPMS/x86_64/{{ item }}-23.02.2-1.el9.x86_64.rpm"
+        ansible.builtin.command: "rpm --reinstall /root/rpmbuild/RPMS/x86_64/{{ item }}-23.11.5-1.el9.x86_64.rpm"
         when:
         -   "item | string in ansible_facts.packages"
         -   rebuild

@@ -58,12 +58,6 @@
             services:
             -   munge.service
 
--   name: roleout slurm.conf
-    hosts: all
-
-    roles:
-    -   role: configure-slurm
-
 -   name: start service head
     hosts: head
 
@@ -82,6 +76,12 @@
         vars:
             services:
             -   slurmd
+
+-   name: roleout slurm.conf
+    hosts: all
+
+    roles:
+    -   role: configure-slurm
 
 -   name: enable firewall for srun
     hosts: all
