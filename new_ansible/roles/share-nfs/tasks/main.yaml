@@ -23,8 +23,7 @@
         line: "{{ path }} {{ item }}({{ mode }},sync)"
     with_inventory_hostnames:
     -   all:!head
-    when: clients is not defined
-    when: client is not defined
+    when: clients is not defined and client is not defined
 
 -   name: Restart NFS-Server
     ansible.builtin.service:
