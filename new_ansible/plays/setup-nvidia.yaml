@@ -1,11 +1,11 @@
 ---
 -   name: install nvidia GPU driver (v100)
-    hosts: l20
+    hosts: v100
 
     roles:
     -   role: enable-repos
-    #-   role: block-nouveau
-    -   role: install-nvidia-driver-legacy
+    -   role: block-nouveau
+    -   role: install-nvidia-driver
 
 -   name: install nvcc copiler
     hosts: head

@@ -3,4 +3,5 @@
     hosts: head
 
     roles:
+    -   role: install-openUCX
     -   role: install-openmpi

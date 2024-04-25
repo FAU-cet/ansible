@@ -1,0 +1,30 @@
+---
+-   name: clone openucx git repo
+    ansible.builtin.git:
+        repo: https://github.com/openucx/ucx.git
+        dest: /root/ucx
+
+-   name: run autogen script
+    ansible.builtin.shell:
+        cmd: ./autogen.sh
+        chdir: /root/ucx
+
+-   name: create build dir
+    ansible.builtin.file:
+        state: directory
+        path: /root/ucx/build
+
+-   name: configure UCX
+    ansible.builtin.shell:
+        cmd: "../contrib/configure-release --prefix={{ installPath }}"
+        chdir: /root/ucx/build
+
+-   name: make ucx
+    community.general.make:
+        chdir: /root/ucx/build
+        jobs: 4 #specifed in documentation
+
+-   name: make install
+    community.general.make:
+        chdir: /root/ucx/build
+        target: install

@@ -32,6 +32,7 @@
         file: IPtoFirewallZone.yaml
     with_inventory_hostnames:
     -   all
+    when: nodes is not defined
 
 -   name: enable ports
     ansible.posix.firewalld:
