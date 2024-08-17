@@ -16,3 +16,16 @@ all:
                 cold:
             vars:
                 gpu-driver-version: "latest"
+vars: #no idea if top level vars work
+    cluster-users:
+    -   mi05jelo
+    -   ev56syov
+    -   bi65vaco
+    -   si95wevo
+    -   te42kyfo
+    -   ol68umor
+    -   qi74wiqe
+    -   ed86uzaf
+    -   iv40egyq
+    -   ur97yfut
+    -   po13tidi

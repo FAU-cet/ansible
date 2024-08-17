@@ -12,3 +12,10 @@
 -   name: create rdma user group
     ansible.builtin.group:
         name: rdma
+
+-   name: add cluster-users to rdma group
+    ansible.builtin.user:
+        name: "{{ item }}"
+        groups: rdma
+        append: yes
+    loop: "{{ cluster-users }}"

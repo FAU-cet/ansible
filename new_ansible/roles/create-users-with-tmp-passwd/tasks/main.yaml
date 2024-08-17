@@ -7,10 +7,10 @@
         password: "{{ item.name | password_hash('sha512') }}"
         update_password: on_create
     register: "changed"
-    loop: "{{users}}"
+    loop: "{{ cluster-users }}"
 
 -   name: let user password expire now
     ansible.builtin.command:
-        cmd: "passwd --expire {{item.name}}"
+        cmd: "passwd --expire {{ item.name }}"
     when: " item.changed is true"
     loop: "{{ changed.results }}"
