@@ -2,7 +2,7 @@
 -   name: download runfile
     ansible.builtin.get_url:
         url: "{{ link }}"
-        dest: /root/cudaInstaller.run
+        dest: "{{ (installer-tmp-folder, 'cudaInstaller.run' ) | path_join }}"
         mode: '0700'
 
 -   name: install gcc
@@ -12,4 +12,4 @@
 
 -   name: install cuda
     ansible.builtin.shell:
-        cmd: "/root/cudaInstaller.run --silent --toolkit --toolkitpath={{ install_path }} --samples --samplespath={{ (install_path, '/samples' ) | path_join }}"
+        cmd: "{{ (installer-tmp-folder, 'cudaInstaller.run' ) | path_join }} --silent --toolkit --toolkitpath={{ install_path }} --samples --samplespath={{ (install_path, '/samples' ) | path_join }}"

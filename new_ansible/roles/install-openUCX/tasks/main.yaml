@@ -2,29 +2,29 @@
 -   name: clone openucx git repo
     ansible.builtin.git:
         repo: https://github.com/openucx/ucx.git
-        dest: /root/ucx
+        dest: "{{ (installer-tmp-folder, 'ucx') | path_join }}"
 
 -   name: run autogen script
     ansible.builtin.shell:
         cmd: ./autogen.sh
-        chdir: /root/ucx
+        chdir: "{{ (installer-tmp-folder, 'ucx') | path_join }}"
 
 -   name: create build dir
     ansible.builtin.file:
         state: directory
-        path: /root/ucx/build
+        path: "{{ (installer-tmp-folder, 'ucx', 'build') | path_join }}"
 
 -   name: configure UCX
     ansible.builtin.shell:
         cmd: "../contrib/configure-release --prefix={{ installPath }}"
-        chdir: /root/ucx/build
+        chdir: "{{ (installer-tmp-folder, 'ucx', 'build') | path_join }}"
 
 -   name: make ucx
     community.general.make:
-        chdir: /root/ucx/build
+        chdir: "{{ (installer-tmp-folder, 'ucx', 'build') | path_join }}"
         jobs: 4 #specifed in documentation
 
 -   name: make install
     community.general.make:
-        chdir: /root/ucx/build
+        chdir: "{{ (installer-tmp-folder, 'ucx', 'build') | path_join }}"
         target: install
