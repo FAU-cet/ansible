@@ -3,7 +3,7 @@
     ansible.builtin.user:
         name: "{{ item.name }}"
         uid: "{{ item.uid }}"
-        home: "{{ homePath }}/{{ item.name }}"
+        home: "{{ (homePath, item.name) | path_join }}"
         create_home: false
         password: "{{item.pwhash}}"
     loop: "{{users}}"
@@ -12,7 +12,7 @@
     ansible.builtin.user:
         name: "{{ item.name }}"
         uid: "{{ item.uid }}"
-        home: "{{ homePath }}/{{ item.name }}"
+        home: "{{ (homePath, item.name) | path_join }}"
         create_home: false
     loop: "{{users}}"
     when: item.pwhash == "!!"

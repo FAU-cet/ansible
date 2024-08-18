@@ -12,4 +12,4 @@
 
 -   name: install cuda
     ansible.builtin.shell:
-        cmd: "/root/cudaInstaller.run --silent --toolkit --toolkitpath={{ install_path }} --samples --samplespath={{ install_path }}/samples"
+        cmd: "/root/cudaInstaller.run --silent --toolkit --toolkitpath={{ install_path }} --samples --samplespath={{ (install_path, '/samples' ) | path_join }}"

@@ -1,6 +1,6 @@
 ---
 -   name: set prompt color
     ansible.builtin.lineinfile:
-        path: "{{ homePath }}/{{ item.name }}/.bashrc"
+        path: "{{ (homePath, item.name, '.bashrc' ) | path_join }}"
         line: "export PS1=\"{{ colorScheme }}\""
-    loop: "{{ users }}"
+    loop: "{{ cluster-users }}"

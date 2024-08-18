@@ -8,12 +8,12 @@
     ansible.builtin.user:
         name: slurm
         uid: "{{ uidSlurm }}"
-        home: "{{ homeFolder }}/slurm"
+        home: "{{ (homeFolder, 'slurm') | path_join }}"
 
 -   name: create munge user
     ansible.builtin.user:
         name: munge
         uid: "{{ uidMunge }}"
-        home: "{{ homeFolder }}/munge"
+        home: "{{ (homeFolder, 'munge') | path_join }}"
         shell: "/usr/sbin/nologin"
 
