@@ -2,7 +2,8 @@
 
 Git for ansible and Kickstart manly by NiLS \
 Singularity is form Simion and Lmod is largely by Philipp both SuCoPra 2023
-newest ansible "brance" is new_ansible/ 
+newest ansible "brance" is new_ansible/ \
+copy hosts file to /etc/ansible/hosts 
 
 # TODOs
 
