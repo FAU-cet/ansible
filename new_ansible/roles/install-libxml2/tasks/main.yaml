@@ -6,12 +6,17 @@
 
 -   name: autogen
     ansible.builtin.shell:
-        cmd: "./autogen.sh --prefix={{ }}" #TODO
+        cmd: "CFLAGS='-O3' ./autogen.sh --prefix={{ shared-software-path }}"
         chdir: "{{ (installer-tmp-folder, 'libxml2') | path_join }}"
 
 -   name: make
     community.general.make:
         chdir: "{{ (installer-tmp-folder, 'libxml2') | path_join }}"
+
+-   name: make test
+    community.general.make:
+        chdir: "{{ (installer-tmp-folder, 'libxml2') | path_join }}"
+        target: test
 
 -   name: make install
     community.general.make:
