@@ -32,15 +32,15 @@
         ansible.builtin.dnf:
             name: "@nvidia-driver:latest-dkms"
 
-    when: gpu-driver-version == "latest"
+    when: gpuDriverVersion == "latest"
 
 -   name: Install nvidia driver in fixed version as .run
     block:
     # former legacy Install
     -   name: download run file
         ansible.builtin.get_url:
-            url: "https://us.download.nvidia.com/tesla/{{ gpu-driver-version }}/NVIDIA-Linux-x86_64-{{ gpu-driver-version.run"
-            dest: "{{ installer-tmp-folder }}"
+            url: "https://us.download.nvidia.com/tesla/{{ gpuDriverVersion }}/NVIDIA-Linux-x86_64-{{ gpuDriverVersion }}.run"
+            dest: "{{ installerTmpFolder }}"
 
     -   name: install gcc and kernel-devel
         ansible.builtin.dnf:
@@ -51,8 +51,8 @@
 
     -   name: exec run file
         ansible.builtin.shell:
-            cmd: "sh NVIDIA-Linux-x86_64-{{ gpu-driver-version }}.run -s"
-            chdir: "{{ installer-tmp-folder }}"
+            cmd: "sh NVIDIA-Linux-x86_64-{{ gpuDriverVersion }}.run -s"
+            chdir: "{{ installerTmpFolder }}"
 
-    when: gpu-driver-version != "latest"
+    when: gpuDriverVersion != "latest"
 

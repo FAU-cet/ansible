@@ -10,15 +10,15 @@
         dest: /apps/modulefiles/openmpi/openmpi-4.1.6.lua
         src: openmpi-4.1.6.lua
 
-#-   name: add nvcc-12.2 modulefile folder
-#    ansible.builtin.file:
-#        path: /apps/modulefiles/nvcc/
-#        state: directory
+-   name: add nvcc-12.4 modulefile folder
+    ansible.builtin.file:
+        path: /apps/modulefiles/nvcc/
+        state: directory
 
-#-   name: add nvcc-12.2 modulefile
-#    ansible.builtin.copy:
-#        dest: /apps/modulefiles/nvcc/nvcc-12.2.0.550.54.14_linux.lua
-#        src: nvcc-12.2.0.550.54.14_linux.lua
+-   name: add nvcc-12.4 modulefile
+    ansible.builtin.copy:
+        dest: /apps/modulefiles/nvcc/nvcc-12.4.0.550.54.14_linux.lua
+        src: nvcc-12.4.0.550.54.14_linux.lua
 
 #-   name: add oneMKL folder
 #    ansible.builtin.file:

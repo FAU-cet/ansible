@@ -12,12 +12,12 @@ all:
             vars:
                 installerTmpFolder: "/root"
                 sharedSoftwarePath: "/apps"
-        V100:
+        GPU:
             hosts:
                 emmy2:
                 emmy8:
             vars:
-                gpuDriverVersion: "latest"
+                gpuDriverVersion: "560.35.03"
     vars: #no idea if top level vars work
         clusterUsers:
         -   adrian
