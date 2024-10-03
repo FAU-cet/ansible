@@ -1,0 +1,10 @@
+---
+-   name: setup docker on Head
+    hosts: all
+
+    roles:
+    -   role: install-docker
+    -   role: enable-autostart
+        vars:
+            services:
+            -   docker
