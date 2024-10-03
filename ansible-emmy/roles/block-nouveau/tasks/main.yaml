@@ -20,7 +20,7 @@
         path: /etc/modprobe.d/local-dontload.conf
         line: blacklist nouveau
 
--   name: pervent from being loaded
+-   name: prevent from being loaded
     ansible.builtin.lineinfile:
         path: /etc/modprobe.d/local-dontload.conf
         line: install nouveau /bin/false

@@ -1,6 +1,6 @@
 ---
 #https://docs.nvidia.com/datacenter/tesla/pdf/NVIDIA_Driver_Installation_Quickstart.pdf
--   name: Install dependencies for dirvers # steps 1,2,5
+-   name: Install dependencies for drivers # steps 1,2,5
     ansible.builtin.dnf:
         name:
         -   tar
@@ -26,6 +26,6 @@
     ansible.builtin.command: #steps 3, 4
         cmd: dnf config-manager --add-repo http://developer.download.nvidia.com/compute/cuda/repos/rhel9/x86_64/cuda-rhel9.repo
 
--   name: Install nvidia dirver module
+-   name: Install nvidia driver module
     ansible.builtin.dnf:
         name: "@nvidia-driver:latest-dkms"

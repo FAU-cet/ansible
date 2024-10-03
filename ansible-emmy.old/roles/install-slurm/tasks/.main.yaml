@@ -8,7 +8,7 @@
     ansible.builtin.package_facts:
         manager: rpm
 
--   name: perform installation if nessesary
+-   name: perform installation if necessary
     block:
 
     -   name: download tar

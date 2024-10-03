@@ -8,7 +8,7 @@
     ansible.builtin.package_facts:
         manager: rpm
 
--   name: perform installation if nessesary
+-   name: perform installation if necessary
     block:
 
     -   name: download tar
@@ -33,7 +33,7 @@
             -   readline-devel
             -   mariadb-devel
             -   dbus-devel #fuck is important for cgroup
-    -   name: set fact with slurm arive
+    -   name: set fact with slurm archive
         ansible.builtin.set_fact:
             slurmArcive: "slurm-{{ slurmVersion }}.tar.bz2"
 

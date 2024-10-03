@@ -7,7 +7,7 @@
     #-   role: block-nouveau
     -   role: install-nvidia-driver-legacy
 
--   name: install nvcc copiler
+-   name: install nvcc compiler
     hosts: head
 
     roles:

@@ -1,5 +1,5 @@
 ---
-#-   name: download legacy dirver (470)
+#-   name: download legacy driver (470)
 #    ansible.builtin.get_url:
 #        url: https://us.download.nvidia.com/tesla/460.106.00/NVIDIA-Linux-x86_64-460.106.00.run
 #        dest: /root/NVIDIA-Linux-x86_64-460.106.00.run

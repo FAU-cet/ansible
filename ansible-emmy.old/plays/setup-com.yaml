@@ -33,7 +33,7 @@
             path: "/apps"
             mode: "755"
 
--   name: sync users form head to com and repeat automatikly
+-   name: sync users form head to com and repeat automatically
     hosts: head
 
     roles:

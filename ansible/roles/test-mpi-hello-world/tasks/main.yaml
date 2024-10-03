@@ -1,5 +1,5 @@
 ---
-# dose not work use as instruktion
+# dose not work use as instruction
 -   name: create folder for git
     ansible.builtin.file:
         path: /root/mpi-hello-world

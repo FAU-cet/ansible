@@ -21,7 +21,7 @@
             -   7012
             -   7013
 
--   name: install slurm and dependend munge on head node
+-   name: install slurm and dependent munge on head node
     hosts: head
 
     roles:
@@ -35,7 +35,7 @@
             services:
             -   munge.service
 
--   name: install slurm and dependend munge on com node (slurm.rpm form head)
+-   name: install slurm and dependent munge on com node (slurm.rpm form head)
     hosts: com
 
     roles:
