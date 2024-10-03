@@ -1,6 +1,6 @@
 ---
 -   name: setup docker on Head
-    hosts: head
+    hosts: all
 
     roles:
     -   role: install-docker
