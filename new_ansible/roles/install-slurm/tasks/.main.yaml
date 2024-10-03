@@ -28,25 +28,17 @@
 
     -   name: rpmbuild
         ansible.builtin.command:
-<<<<<<< HEAD
-            cmd: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2 --without mysql --define '--with-pmix'" #TODO
-=======
             cmd: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2 --without mysql --define '--with-pmix /lib64'" #TODO
->>>>>>> fbda68d77f9624621ac6215b65677252c9e32be4
             creates: "~/rpmbuild/RPMS/x86_64/slurm*.rpm"
         when: not rebuild
 
     -   name: rebuild rpmbuild
         ansible.builtin.command:
-<<<<<<< HEAD
-            cmd: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2 --without mysql --define '--with-pmix'" #TODO
-=======
             cmd: "rpmbuild -ta {{ path }}/slurm-23.02.2.tar.bz2 --without mysql --define '--with-pmix /lib64'" #TODO
->>>>>>> fbda68d77f9624621ac6215b65677252c9e32be4
         when: rebuild
 
     -   name: rpm install files
-        ansible.builtin.command: "rpm --install /root/rpmbuild/RPMS/x86_64/{{ item }}-23.02.2-1.el9.x86_64.rpm" #installtion will be in home of buiding user
+        ansible.builtin.command: "rpm --install /root/rpmbuild/RPMS/x86_64/{{ item }}-23.02.2-1.el9.x86_64.rpm" #installation will be in home of buiding user
         when: "item | string not in ansible_facts.packages"
         with_items:
         -   slurm
