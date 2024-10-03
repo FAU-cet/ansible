@@ -22,7 +22,7 @@
 -   name: make ucx
     community.general.make:
         chdir: "{{ (installerTmpFolder, 'ucx', 'build') | path_join }}"
-        jobs: 4 #specifed in documentation
+        jobs: 4 #specified in documentation
 
 -   name: make install
     community.general.make:

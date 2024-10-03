@@ -1,6 +1,6 @@
 ---
 -   name: #TODO default link is not latest
-    ansible.builtin.anarchive:
+    ansible.builtin.unarchive:
         src: http://www.netlib.org/lapack/lapack.tgz
         dest: "{{ (installer-tmp-folder, 'lapack') | path_join }}"
         remote_src: yes

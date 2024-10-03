@@ -1,5 +1,5 @@
 ---
--   name: install pip packetes for MTT
+-   name: install pip packets for MTT
     ansible.builtin.pip:
         name: "{{ item }}"
     with_items:

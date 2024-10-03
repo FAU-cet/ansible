@@ -1,5 +1,5 @@
 ---
--   name: download dependentces for pmix
+-   name: download dependencies for pmix
     ansible.builtin.dnf:
         name:
         -   m4

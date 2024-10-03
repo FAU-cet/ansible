@@ -22,7 +22,7 @@
         vars:
             service: opensm
 
--   name: install debug tolls
+-   name: install debug tools
     hosts: all
 
     roles:

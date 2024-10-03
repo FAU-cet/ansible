@@ -1,5 +1,5 @@
 ---
--   name: install perl nedeet by ibdiagnet
+-   name: install perl needed by ibdiagnet
     ansible.builtin.dnf:
         name: perl
         state: present

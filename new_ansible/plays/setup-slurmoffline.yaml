@@ -52,7 +52,7 @@
 
     roles:
     -   role: install-slurm-from-head
-    -   role: munge-key-roleout
+    -   role: munge-key-rollout
     -   role: enable-autostart
         vars:
             services:
@@ -77,7 +77,7 @@
             services:
             -   slurmd
 
--   name: roleout slurm.conf
+-   name: rollout slurm.conf
     hosts: all
 
     roles:

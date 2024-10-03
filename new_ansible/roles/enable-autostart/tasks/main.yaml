@@ -1,5 +1,5 @@
 ---
--   name: start servies and autostart
+-   name: start services and autostart
     ansible.builtin.systemd:
         state: started
         name: "{{ item }}"

@@ -1,5 +1,5 @@
 ---
--   name: setup neddet software
+-   name: setup needed software
     hosts: head
 
     roles:

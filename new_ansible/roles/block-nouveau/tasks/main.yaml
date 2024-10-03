@@ -28,12 +28,12 @@
 -   name: rebuilt initial ramdisk
     ansible.builtin.shell: dracut --omit-drivers nouveau -f
 
--   name: make permanet file
+-   name: make permanent file
     ansible.builtin.file:
         path: /etc/dracut.conf.d/omit-nouveau.conf
         state: touch
 
--   name: make permanet
+-   name: make permanent
     ansible.builtin.lineinfile:
         path: /etc/dracut.conf.d/omit-nouveau.conf
         line: "omit_dracutmodules+=\" nouveau \""
