@@ -1,4 +1,4 @@
-local base = pathJoin("/apps/openmpi/openmpi-4.1.5")
+local base = pathJoin("/apps/openmpi/openmpi-4.1.6")
 
 family("openmpi")
 
@@ -19,3 +19,6 @@ setenv("MPIF90", pathJoin(base, "bin/mpif90"))
 setenv("OPENMPI_ROOT", pathJoin(base, ""))
 setenv("OMPI_MCA_btl_openib_warn_default_gid_prefix", "0")
 setenv("OMPI_MCA_orte_tmpdir_base", "/dev/shm")
+
+-- UCX
+prepend_path("PATH", pathJoin("/apps/ucx/bin"))

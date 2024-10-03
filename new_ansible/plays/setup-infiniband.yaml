@@ -3,4 +3,27 @@
     hosts: all
 
     roles:
-    -   role: unlimit-rdma-users
+    #-   role: unlimit-rdma-users
+    -   role: install-package
+        vars:
+            packages:
+            -   libibverbs
+            -   libibverbs-utils
+            -   infiniband-diags
+
+-   name: setup openSM
+    hosts: head
+
+    roles:
+    -   role: install-package
+        vars:
+            package: opensm
+    -   role: enable-autostart
+        vars:
+            service: opensm
+
+-   name: install debug tolls
+    hosts: all
+
+    roles:
+    -   role: install-infinibandDebug

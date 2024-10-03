@@ -18,4 +18,4 @@
         name: "{{ item }}"
         groups: rdma
         append: yes
-    loop: "{{ cluster-users }}"
+    loop: "{{ clusterUsers }}"

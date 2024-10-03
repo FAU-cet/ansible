@@ -7,3 +7,6 @@
         vars:
             services:
             -   "ssh"
+            -   "nfs"
+            -   "rpc-bind"
+            -   "mountd"

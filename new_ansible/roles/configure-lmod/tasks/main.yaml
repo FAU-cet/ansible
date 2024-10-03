@@ -5,47 +5,47 @@
         path: /apps/modulefiles/openmpi
         state: directory
 
--   name: add openmpi-4.1.5 modulefile
+-   name: add openmpi-4.1.6 modulefile
     ansible.builtin.copy:
-        dest: /apps/modulefiles/openmpi/openmpi-4.1.5.lua
-        src: openmpi-4.1.5.lua
+        dest: /apps/modulefiles/openmpi/openmpi-4.1.6.lua
+        src: openmpi-4.1.6.lua
 
--   name: add nvcc-12.2 modulefile folder
-    ansible.builtin.file:
-        path: /apps/modulefiles/nvcc/
-        state: directory
+#-   name: add nvcc-12.2 modulefile folder
+#    ansible.builtin.file:
+#        path: /apps/modulefiles/nvcc/
+#        state: directory
 
--   name: add nvcc-12.2 modulefile
-    ansible.builtin.copy:
-        dest: /apps/modulefiles/nvcc/nvcc-12.2.0.550.54.14_linux.lua
-        src: nvcc-12.2.0.550.54.14_linux.lua
+#-   name: add nvcc-12.2 modulefile
+#    ansible.builtin.copy:
+#        dest: /apps/modulefiles/nvcc/nvcc-12.2.0.550.54.14_linux.lua
+#        src: nvcc-12.2.0.550.54.14_linux.lua
 
--   name: add oneMKL folder
-    ansible.builtin.file:
-        path: /apps/modulefiles/oneMKL
-        state: directory
+#-   name: add oneMKL folder
+#    ansible.builtin.file:
+#        path: /apps/modulefiles/oneMKL
+#        state: directory
 
--   name: add oneMKL modulefile
-    ansible.builtin.copy:
-        dest: /apps/modulefiles/oneMKL/oneMKL-2024.1.lua
-        src: oneMKL-2024.1.lua
+#-   name: add oneMKL modulefile
+#    ansible.builtin.copy:
+#       dest: /apps/modulefiles/oneMKL/oneMKL-2024.1.lua
+#        src: oneMKL-2024.1.lua
 
--   name: add intelmpi folder
-    ansible.builtin.file:
-        path: /apps/modulefiles/intelmpi/
-        state: directory
+#-   name: add intelmpi folder
+#    ansible.builtin.file:
+#        path: /apps/modulefiles/intelmpi/
+#        state: directory
 
--   name: add intelmpi modulefile
-    ansible.builtin.copy:
-        dest: /apps/modulefiles/intelmpi/intelmpi-2021.12.lua
-        src: intelmpi-2021.12.lua
+#-   name: add intelmpi modulefile
+#    ansible.builtin.copy:
+#        dest: /apps/modulefiles/intelmpi/intelmpi-2021.12.lua
+#        src: intelmpi-2021.12.lua
 
--   name: add icc modulefile folder
-    ansible.builtin.file:
-        path: /apps/modulefiles/icc/
-        state: directory
+#-   name: add icc modulefile folder
+#    ansible.builtin.file:
+#        path: /apps/modulefiles/icc/
+#        state: directory
 
--   name: add icc modulefile
-    ansible.builtin.copy:
-        dest: /apps/modulefiles/icc/icc-2024.1.lua
-        src: icc-2024.1.lua
+#-   name: add icc modulefile
+#    ansible.builtin.copy:
+#        dest: /apps/modulefiles/icc/icc-2024.1.lua
+#        src: icc-2024.1.lua

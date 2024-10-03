@@ -1,5 +1,4 @@
 -   name: test
-    hosts: head
+    hosts: H100
     roles:
-    -   role: test_vars
-
+    -   role: update-slurm-config

@@ -5,3 +5,11 @@
         name: "{{ item }}"
         enabled: true
     loop: "{{ services }}"
+    when: services is defined
+
+-   name: start service and autostart
+    ansible.builtin.systemd:
+        state: started
+        name: "{{ service }}"
+        enabled: true
+    when: service is defined

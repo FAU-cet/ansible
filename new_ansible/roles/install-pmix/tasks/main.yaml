@@ -16,31 +16,31 @@
 -   name: download the git repo
     ansible.builtin.git:
         repo: 'https://github.com/pmix/pmix'
-        dest: "{{ (installer-tmp-folder, 'pmix') | path_join }}"
+        dest: "{{ (installerTmpFolder, 'pmix') | path_join }}"
 
 -   name: autogen
     ansible.builtin.shell: ./autogen.pl
     args:
-        chdir: "{{ (installer-tmp-folder, 'pmix') | path_join }}"
-        creates: "{{ (installer-tmp-folder, 'pmix', 'configure') | path_join }}"
+        chdir: "{{ (installerTmpFolder, 'pmix') | path_join }}"
+        creates: "{{ (installerTmpFolder, 'pmix', 'configure') | path_join }}"
 
 -   name: create build dir
     ansible.builtin.file:
-        path: "{{ (installer-tmp-folder, 'pmix', 'build') | path_join }}"
+        path: "{{ (installerTmpFolder, 'pmix', 'build') | path_join }}"
         state: directory
 
 -   name: configure
     ansible.builtin.shell:
         cmd: "../configure --prefix={{ path }}"
-        chdir: "{{ (installer-tmp-folder, 'pmix', 'build') | path_join }}"
-        creates: "{{ (installer-tmp-folder, 'pmix', 'build', 'Makefile') | path_join }}"
+        chdir: "{{ (installerTmpFolder, 'pmix', 'build') | path_join }}"
+        creates: "{{ (installerTmpFolder, 'pmix', 'build', 'Makefile') | path_join }}"
 
 -   name: build pmix
     community.general.make:
-        chdir: "{{ (installer-tmp-folder, 'pmix', 'build') | path_join }}"
+        chdir: "{{ (installerTmpFolder, 'pmix', 'build') | path_join }}"
         target: all
 
 -   name: install pmix
     community.general.make:
-        chdir: "{{ (installer-tmp-folder, 'pmix', 'build') | path_join }}"
+        chdir: "{{ (installerTmpFolder, 'pmix', 'build') | path_join }}"
         target: install

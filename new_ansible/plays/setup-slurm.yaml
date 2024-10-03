@@ -39,8 +39,6 @@
             path: "/var/log/slurm"
             owner: "slurm"
     -   role: install-slurm
-        vars:
-            path: "/root/slurm"
     -   role: munge-create-key
     -   role: enable-autostart
         vars:
@@ -66,7 +64,12 @@
         vars:
             services:
             -   slurmctld
-            -   slurmd
+
+-   name: roleout slurm.conf
+    hosts: all
+
+    roles:
+    -   role: configure-slurm
 
 -   name: start service com
     hosts: com
@@ -76,12 +79,6 @@
         vars:
             services:
             -   slurmd
-
--   name: roleout slurm.conf
-    hosts: all
-
-    roles:
-    -   role: configure-slurm
 
 -   name: enable firewall for srun
     hosts: all

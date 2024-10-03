@@ -6,7 +6,7 @@
     -   role: install-singularity
 
 -   name: setup singularity CUDA support
-    hosts: v100
+    hosts: H100
 
     roles:
     -   role: install-gpu-for-singularity

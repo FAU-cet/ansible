@@ -1,5 +1,5 @@
 --- #all vars have defaults
--   name: creaet home dir folder
+-   name: create home dir folder
     ansible.builtin.file:
         path: "{{ homeFolder }}"
         state: directory
