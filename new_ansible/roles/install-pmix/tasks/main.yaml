@@ -17,6 +17,7 @@
     ansible.builtin.git:
         repo: 'https://github.com/pmix/pmix'
         dest: "{{ (installerTmpFolder, 'pmix') | path_join }}"
+        version: "v5.0.3"
 
 -   name: autogen
     ansible.builtin.shell: ./autogen.pl

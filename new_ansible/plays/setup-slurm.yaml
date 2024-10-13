@@ -1,4 +1,4 @@
----
+--- #WARNING nodes must communicate via ssh !!!
 -   name: update
     hosts: all
 

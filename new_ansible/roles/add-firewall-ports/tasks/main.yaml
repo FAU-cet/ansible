@@ -36,3 +36,4 @@
 -   name: reload firewalld
     ansible.builtin.command:
         cmd: "firewall-cmd --reload"
+    ignore_errors: true
