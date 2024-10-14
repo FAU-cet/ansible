@@ -8,4 +8,7 @@
         vars:
             services:
             -   docker
-    -   role: configure-docker
+    -   role: add-users-to-group
+        vars:
+            group: docker
+            users: "{{ clusterUsers }}"
