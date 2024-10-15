@@ -1,5 +1,5 @@
 ---
--   name: setup docker on Head
+-   name: setup docker on all nodes
     hosts: all
 
     roles:
@@ -12,3 +12,4 @@
         vars:
             group: docker
             users: "{{ clusterUsers }}"
+    -   role: configure-docker-nvidiacontainertoolkit
