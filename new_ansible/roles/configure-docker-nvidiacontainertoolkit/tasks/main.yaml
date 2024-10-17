@@ -17,5 +17,5 @@
 
 -   name: restart docker service
     ansible.builtin.command:
-        cmd: sudo systemctl restart docker
+        cmd: systemctl restart docker
     become: true
