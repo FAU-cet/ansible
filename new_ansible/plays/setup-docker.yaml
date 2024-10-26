@@ -1,5 +1,5 @@
 ---
--   name: setup docker on Head
+-   name: setup docker on all nodes
     hosts: all
 
     roles:
@@ -7,8 +7,15 @@
     -   role: enable-autostart
         vars:
             services:
-            -   docker
+            -   docker.service
+            -   containerd.service
+    -   role: create-group
+        vars:
+            name: docker
+            gid: 2003
     -   role: add-users-to-group
         vars:
             group: docker
             users: "{{ clusterUsers }}"
+    -   role: configure-docker-nvidiacontainertoolkit
+    -   role: fix-docker-sock-access
