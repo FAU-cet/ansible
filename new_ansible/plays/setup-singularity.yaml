@@ -1,9 +1,11 @@
 ---
--   name: setup singularity
+-   name: setup Apptainer (singularity)
     hosts: all
 
     roles:
-    -   role: install-singularity
+    -   role: install-package
+        vars:
+            package: apptainer
 
 -   name: setup singularity CUDA support
     hosts: GPU
