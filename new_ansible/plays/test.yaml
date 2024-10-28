@@ -1,4 +1,4 @@
 -   name: test
     hosts: all
     roles:
-    -   role: configure-ib-ip
+    -   role: allow-internode-ssh

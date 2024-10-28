@@ -1,11 +1,19 @@
 ---
--   name: add other nodes to known hosts
-    ansible.builtin.known_hosts:
-        name: "{{ item }}"
-        key: "{{ lookup('pipe', 'ssh-keyscan' + item + ',' + lookup('dig', item)) }}"
+-   name: add all nodes to known_hosts
+    ansible.builtin.include_tasks: allow-node.yaml
     with_items: "{{ groups['all'] }}"
 
 -   name: copy ssh private key from your Laptop to node
     ansible.posix.synchronize:
         src: "{{ ('~/.ssh/', privateSSHkey) | path_join }}"
         dest: "{{ ('/root/.ssh/', privateSSHkey) | path_join }}"
+        #TODO dose not work:
+        owner: false #don't change owner on node
+        perms: false #don't change permisions on node
+
+-   name: make sure key belongs root
+    ansible.builtin.file:
+        path: "{{ ('/root/.ssh/', privateSSHkey) | path_join }}"
+        owner: root
+        group: root
+        mode: '0400'
