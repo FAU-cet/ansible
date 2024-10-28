@@ -1,11 +1,4 @@
 ---
 -   name: debug
     ansible.builtin.debug:
-        msg: "{{ lookup('ansible.builtin.fileglob', '/root/rpmbuild/RPMS/x86_64/*.rpm') }}"
-
--   name: get slurm rpms from head
-    ansible.posix.synchronize:
-        src: "{{ item }}"
-        dest: "{{ item }}"
-    delegate_to: "{{ groups.head[0] }}"
-    with_fileglob: "/root/rpmbuild/RPMS/x86_64/*.rpm"
+        msg: "{{ ansible_facts}}"

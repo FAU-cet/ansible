@@ -1,4 +1,4 @@
 -   name: test
-    hosts: H100
+    hosts: all
     roles:
-    -   role: update-slurm-config
+    -   role: configure-ib-ip

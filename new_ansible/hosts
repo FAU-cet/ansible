@@ -7,8 +7,17 @@ all:
         com:
             hosts:
                 emmy2:
+                    IB_IPaddresses:
+                    -   10.2.2.1
+                    -   10.2.2.2
                 emmy11:
+                    IB_IPaddresses:
+                    -   10.2.11.1
+                    -   10.2.11.2
                 emmy8:
+                    IB_IPaddresses:
+                    -   10.2.8.1
+                    -   10.2.8.2
             vars:
                 installerTmpFolder: "/root"
                 sharedSoftwarePath: "/apps"
@@ -31,3 +40,5 @@ all:
         homeFolder: /home
         slurmVersion: "24.05.3"
         openMPIVersion: "4.1.6"
+        IBnetmask: 255.255.0.0
+        privateSSHkey: "id_faucet"

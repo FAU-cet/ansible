@@ -17,8 +17,12 @@ setenv("MPICXX", pathJoin(base, "bin/mpic++"))
 setenv("MPIF77", pathJoin(base, "bin/mpif77"))
 setenv("MPIF90", pathJoin(base, "bin/mpif90"))
 setenv("OPENMPI_ROOT", pathJoin(base, ""))
-setenv("OMPI_MCA_btl_openib_warn_default_gid_prefix", "0")
-setenv("OMPI_MCA_orte_tmpdir_base", "/dev/shm")
+-- optional:
+setenv("MPI_HOME", pathJoin(base, ""))
+setenv("SHMEM_HOME", pathJoin(base, ""))
+--ASC24 maby not important:
+--setenv("OMPI_MCA_btl_openib_warn_default_gid_prefix", "0")
+--setenv("OMPI_MCA_orte_tmpdir_base", "/dev/shm")
 
 -- UCX
-prepend_path("PATH", pathJoin("/apps/ucx/bin"))
+-- prepend_path("PATH", pathJoin("/apps/ucx/bin"))

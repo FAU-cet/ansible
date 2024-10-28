@@ -1,0 +1,11 @@
+---
+-   name: add other nodes to known hosts
+    ansible.builtin.known_hosts:
+        name: "{{ item }}"
+        key: "{{ lookup('pipe', 'ssh-keyscan' + item + ',' + lookup('dig', item)) }}"
+    with_items: "{{ groups['all'] }}"
+
+-   name: copy ssh private key from your Laptop to node
+    ansible.posix.synchronize:
+        src: "{{ ('~/.ssh/', privateSSHkey) | path_join }}"
+        dest: "{{ ('/root/.ssh/', privateSSHkey) | path_join }}"

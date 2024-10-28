@@ -28,7 +28,13 @@
     roles:
     -   role: install-munge
     -   role: install-libevent
-    -   role: install-pmix
+    #-   role: install-pmix
+    -   role: install-package #TEST old version (2021) from repo
+        vars:
+            packages:
+            -   pmix
+            -   pmix-devel
+            -   pmix-tools
 
 -   name: install slurm on head node
     hosts: head
@@ -44,6 +50,11 @@
         vars:
             services:
             -   munge.service
+-   name: enable inter node ssh
+    hosts: all
+
+    roles:
+    -   role: allow-internode-ssh
 
 -   name: install slurm on com nodes (slurm.rpm form head)
     hosts: com

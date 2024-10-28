@@ -1,12 +1,10 @@
 ---
--   name: setup firewall on Head
-    hosts: head
+-   name: allow ssh and InfiniBand trow firewall in new cluster zone
+    hosts: all
 
     roles:
     -   role: enable-firewall-ports
         vars:
             services:
             -   "ssh"
-            -   "nfs"
-            -   "rpc-bind"
-            -   "mountd"
+    #-   role: enable-firewall-infiniband TODO

@@ -39,13 +39,13 @@
 
     -   name: rpmbuild
         ansible.builtin.command:
-            cmd: "rpmbuild -ta --define '_with_pmix --with-pmix=/usr/local' {{ (installerTmpFolder, 'slurm', slurmArcive) | path_join }}  --without mysql " #TODO
+            cmd: "rpmbuild -ta --define '_with_pmix --with-pmix=/usr/' {{ (installerTmpFolder, 'slurm', slurmArcive) | path_join }}  --without mysql " #TODO
             creates: "{{ (installerTmpFolder, 'rpmbuild/RPMS/x86_64/slurm*.rpm') | path_join }}"
         when: not rebuild
 
     -   name: rebuild rpmbuild
         ansible.builtin.command:
-            cmd: "rpmbuild -ta --define '_with_pmix --with-pmix=/usr/local'  {{ (installerTmpFolder, 'slurm', slurmArcive ) | path_join }} --without mysql " #TODO
+            cmd: "rpmbuild -ta --define '_with_pmix --with-pmix=/usr/'  {{ (installerTmpFolder, 'slurm', slurmArcive ) | path_join }} --without mysql " #TODO
         when: rebuild
 
     -   name: rpm install files

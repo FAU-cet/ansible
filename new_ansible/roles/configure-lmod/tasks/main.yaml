@@ -49,3 +49,13 @@
 #    ansible.builtin.copy:
 #        dest: /apps/modulefiles/icc/icc-2024.1.lua
 #        src: icc-2024.1.lua
+
+-   name: add nvshmem modulefile folder
+    ansible.builtin.file:
+        path: /apps/modulefiles/nvshmem/
+        state: directory
+
+-   name: add nvshmem-2.11.0-5 modulefile
+    ansible.builtin.copy:
+        dest: /apps/modulefiles/nvshmem/nvshmem-2.11.0-5.lua
+        src: nvshmem-2.11.0-5.lua
