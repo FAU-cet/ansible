@@ -1,0 +1,11 @@
+---
+-   name: download and unpack MLNX-OFED Driver
+    ansible.builtin.unarchive:
+        src: "{{ mlnx_ofed_download_link }}"
+        dest: "{{ installerTmpFolder }}" #"{{ (installerTmpFolder, 'MLNX-OFED') | path_join }}"
+        remote_src: yes
+
+-   name: install MLNX-OFED Driver
+    ansible.builtin.shell:
+        cmd: "./mlnxofedinstall --all --with-nfsrdma"
+        chdir: "{{ (installerTmpFolder, mlnx_ofed_version) | path_join }}"
