@@ -1,4 +1,4 @@
 -   name: test
-    hosts: all
+    hosts: head
     roles:
-    -   role: allow-internode-ssh
+    -   role: install-nvhpc
