@@ -1,1 +1,1 @@
-export MODULEPATH=/apps/modulefiles:$MODULEPATH
+export MODULEPATH=/apps/modulefiles:/apps/nvhpc_sdk/modulefiles:$MODULEPATH
