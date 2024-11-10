@@ -1,0 +1,6 @@
+-   name: install cudatoolkit i.e. nvcc
+    hosts: head
+
+    roles:
+    -   role: install-cudatoolkit
+
