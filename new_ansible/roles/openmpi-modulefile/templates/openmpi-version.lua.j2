@@ -2,7 +2,7 @@ local base = pathJoin("{{ openMPIAbsolutePath }}")
 
 family("openmpi")
 
-conflict("openmpi")
+conflict("openmpi","intelmpi")
 
 whatis("Name: "..myModuleName())
 whatis("Version: "..myModuleVersion())

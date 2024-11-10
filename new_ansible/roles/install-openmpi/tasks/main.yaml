@@ -1,4 +1,8 @@
 ---
+-   name: debug
+    ansible.builtin.debug:
+        msg: "{{ openMPIwithCuda }}"
+
 -   name: set var openMPI version name
     ansible.builtin.set_fact:
         openMPIVersionName: "openmpi-{{ openMPIVersion }}"
@@ -14,11 +18,22 @@
         dest: "{{ (installerTmpFolder, 'openmpi') | path_join }}"
         remote_src: yes
 
+-   name: create openMPI configure string
+    ansible.builtin.include_tasks:
+        file: configure-openmpi.yaml
+    when: openMPIConfigure is not defined
+
 -   name: configure openmpi
     ansible.builtin.command:
-        cmd: "./configure --prefix={{ (sharedSoftwarePath, 'openmpi', openMPIVersionName) | path_join }} --with-slurm --with-pmi --with-pmix --with-cuda --with-singularity --with-ucx"
+        cmd: "./configure {{openMPIConfigure}}"
         chdir: "{{ (installerTmpFolder, 'openmpi', openMPIVersionName) | path_join }}"
         creates: "{{ (installerTmpFolder, 'openmpi', openMPIVersionName, 'Makefile') | path_join }}"
+
+-   name: reconfigure openmpi
+    ansible.builtin.command:
+        cmd: "./configure {{openMPIConfigure}}"
+        chdir: "{{ (installerTmpFolder, 'openmpi', openMPIVersionName) | path_join }}"
+    when: reconfigure is defined and reconfigure|bool
 
 -   name: make
     community.general.make:
@@ -31,3 +46,6 @@
 
 #--with-slurm --with-pmi=/usr/include/slurm --with-pmi-libdir=/usr
 #cmd: "./configure --prefix={{ (sharedSoftwarePath, 'openmpi', openMPIVersionName) | path_join }} --with-slurm --with-pmi --with-pmix --with-cuda --with-singularity --with-ucx --without-verbs --enable-orterun-prefix-by-default"
+
+
+#--prefix={{ (sharedSoftwarePath, 'openmpi', openMPIVersionName) | path_join }} --with-slurm --with-pmi --with-pmix --with-cuda --with-singularity --with-ucx

@@ -1,4 +1,13 @@
 ---
+-   name: set name for cuda modulefile
+    ansible.builtin.set_fact:
+        cudaVersionName: "cuda-{{ cuda_version }}"
+
+-   name: set link if nesasary information is found
+    ansible.builtin.set_fact:
+        link: "https://developer.download.nvidia.com/compute/cuda/{{ cuda_version }}/local_installers/cuda_{{ cuda_version }}_{{ cudaDriverVersion}}_linux.run"
+    when: cudaDriverVersion is definded
+
 -   name: download runfile
     ansible.builtin.get_url:
         url: "{{ link }}"
@@ -12,4 +21,4 @@
 
 -   name: install cuda
     ansible.builtin.shell:
-        cmd: "{{ (installerTmpFolder, 'cudaInstaller.run' ) | path_join }} --silent --toolkit --toolkitpath={{ install_path }} --samples --samplespath={{ (install_path, '/samples' ) | path_join }}"
+        cmd: "{{ (installerTmpFolder, 'cudaInstaller.run' ) | path_join }} --silent --toolkit --toolkitpath={{ (sharedSoftwarePath, 'cuda', cudaVersionName) | path_join }} --samples --samplespath={{ (sharedSoftwarePath, 'cuda' cudaVersionName, 'samples' ) | path_join }}"
