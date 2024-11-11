@@ -6,12 +6,12 @@
 -   name: set link if nesasary information is found
     ansible.builtin.set_fact:
         link: "https://developer.download.nvidia.com/compute/cuda/{{ cuda_version }}/local_installers/cuda_{{ cuda_version }}_{{ cudaDriverVersion}}_linux.run"
-    when: cudaDriverVersion is definded
+    when: cudaDriverVersion is defined
 
 -   name: download runfile
     ansible.builtin.get_url:
         url: "{{ link }}"
-        dest: "{{ (installerTmpFolder, 'cudaInstaller.run' ) | path_join }}"
+        dest: "{{ installerTmpFolder }}"
         mode: '0700'
 
 -   name: install gcc
@@ -19,6 +19,11 @@
         name: gcc
         state: present
 
+-   name: set cuda installer runfile name
+    ansible.builtin.set_fact:
+        cudaInstallerRunfile: "cuda_{{ cuda_version }}_{{ cudaDriverVersion }}_linux.run"
+    when: cudaDriverVersion is defined
+
 -   name: install cuda
     ansible.builtin.shell:
-        cmd: "{{ (installerTmpFolder, 'cudaInstaller.run' ) | path_join }} --silent --toolkit --toolkitpath={{ (sharedSoftwarePath, 'cuda', cudaVersionName) | path_join }} --samples --samplespath={{ (sharedSoftwarePath, 'cuda' cudaVersionName, 'samples' ) | path_join }}"
+        cmd: "{{ (installerTmpFolder, cudaInstallerRunfile ) | path_join }} --silent --toolkit --toolkitpath={{ (sharedSoftwarePath, 'cuda', cudaVersionName) | path_join }} --samples --samplespath={{ (sharedSoftwarePath, 'cuda', cudaVersionName, 'samples' ) | path_join }}"

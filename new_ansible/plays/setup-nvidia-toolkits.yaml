@@ -3,4 +3,10 @@
 
     roles:
     -   role: install-cudatoolkit
+        tags: cudatoolkit
 
+    -   role: cuda-modulefile
+        tags: cudatoolkit
+
+    -   role: install-nvhpc
+        tags: nvhpc
