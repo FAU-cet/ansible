@@ -17,3 +17,13 @@
         owner: root
         group: root
         mode: '0400'
+#TODO wary bad way
+-   name: configure ssh config
+    ansible.builtin.lineinfile:
+        path: "/root/.ssh/config"
+        line: "Host emmy*"
+
+-   name: configure ssh config
+    ansible.builtin.lineinfile:
+        path: "/root/.ssh/config"
+        line: "\tIdentityFile ~/.ssh/id_faucet"
