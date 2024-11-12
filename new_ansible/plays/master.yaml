@@ -1,19 +1,13 @@
----
--   name: setup InfiniBand
-    ansible.bulitin.import_playbook: setup-infiniband.yaml
+# - ansible.bulitin.import_playbook: setup-GPU-driver.yaml
 
--   name: setup Firewall
-    ansible.bulitin.import_playbook: setup-firewall.yaml
+- ansible.builtin.import_playbook: setup-infiniband.yaml
 
--   name: setup Lmod (module)
-    ansible.bulitin.import_playbook: setup-module.yaml
+# - ansible.bulitin.import_playbook: setup-module.yaml
 
--   name: setup slurm
-    ansible.bulitin.import_playbook: setup-slurm.yaml
+- ansible.bulitin.import_playbook: setup-slurm.yaml
 
--   name: setup openMPI
-    ansible.bulitin.import_playbook: setup-openmpi.yaml
+- ansible.bulitin.import_playbook: setup-openmpi.yaml
 
--   name: setup Apptainer (Singularity)
-    ansible.bulitin.import_playbook: setup-singularity.yaml
+- ansible.bulitin.import_playbook: setup-singularity.yaml
 
+- ansible.bulitin.import_playbook: setup-firewall.yaml

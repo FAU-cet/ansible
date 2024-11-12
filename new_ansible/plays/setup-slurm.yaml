@@ -18,7 +18,7 @@
     roles:
     -   role: enable-firewall-ports
         vars:
-        -   ports:
+            ports:
             -   7012
             -   7013
 
@@ -35,6 +35,8 @@
             -   pmix
             -   pmix-devel
             -   pmix-tools
+            -   autoconf
+            -   automake
 
 -   name: install slurm on head node
     hosts: head
