@@ -28,14 +28,26 @@
 
 -   name: configure gcc
     ansible.builtin.shell:
-        cmd: "{{ ('..', gccVersionName, 'configure') | path_join }} --prefix={{ (sharedSoftwarePath, 'gcc', gccVersionName) | path_join }} --enable-languages=c,c++,fortran,go --disable-multilib" # no 32-bit
+        cmd: "{{ ('..', gccVersionName, 'configure') | path_join }} --prefix={{ (sharedSoftwarePath, 'gcc', gccVersionName) | path_join }} --enable-languages=c,c++,fortran --disable-multilib" # no 32-bit
         chdir: "{{ (installerTmpFolder, gccBuildVersionName) | path_join }}"
+    environment:
+        PATH: "{{ (sharedSoftwarePath, 'gettext', gettextVersionName) | path_join }}:{{ ansible_env.PATH }}"
+
+
+-   name: set gettextVersionName
+    ansible.builtin.set_fact:
+        gettextVersionName: "gettext-{{ gettext_version }}"
+    
 
 -   name: make
     community.general.make:
         chdir: "{{ (installerTmpFolder, gccBuildVersionName) | path_join }}"
+    environment:
+        PATH: "{{ (sharedSoftwarePath, 'gettext', gettextVersionName) | path_join }}:{{ ansible_env.PATH }}"
 
 -   name: make install
     community.general.make:
         chdir: "{{ (installerTmpFolder, gccBuildVersionName) | path_join }}"
         target: install
+    environment:
+        PATH: "{{ (sharedSoftwarePath, 'gettext', gettextVersionName, 'bin') | path_join }}:{{ ansible_env.PATH }}"
