@@ -27,7 +27,7 @@
 -   name: configure ssh config
     ansible.builtin.lineinfile:
         path: "/root/.ssh/config"
-        line: "Host emmy*"
+        line: "Host hot, drain, cold, emmy*"
 
 -   name: configure ssh config
     ansible.builtin.lineinfile:
