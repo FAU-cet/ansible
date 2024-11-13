@@ -8,7 +8,7 @@
     -   name: deploy network configuration file
         ansible.builtin.template:
             src: IPconfig.j2
-            dest: "/etc/sysconfig/network-scripts/.ifcfg-{{ interfaceName }}" #TODO remove .
+            dest: "/etc/sysconfig/network-scripts/ifcfg-{{ interfaceName }}"
             backup: true
             force: "{{override_IB_IPaddress}}" #defalt False
 

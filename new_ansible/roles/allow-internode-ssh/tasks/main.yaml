@@ -17,7 +17,13 @@
         owner: root
         group: root
         mode: '0400'
+
 #TODO wary bad way
+-   name: ensure .ssh/config exists
+    ansible.builtin.file:
+        path: "/root/.ssh/config"
+        state: touch
+
 -   name: configure ssh config
     ansible.builtin.lineinfile:
         path: "/root/.ssh/config"

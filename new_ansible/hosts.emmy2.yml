@@ -2,29 +2,29 @@ all:
     children:
         head:
             hosts:
-                emmy11:
+                emmy10:
                     sharedSoftwareOriginalPath: "/apps"
         com:
             hosts:
-                emmy2:
+                emmy1:
                     IB_IPaddresses:
-                    -   10.2.2.1
-                    -   10.2.2.2
-                emmy11:
+                    -   10.2.1.1
+                    -   10.2.1.2
+                emmy4:
                     IB_IPaddresses:
-                    -   10.2.11.1
-                    -   10.2.11.2
-                emmy8:
+                    -   10.2.4.1
+                    -   10.2.4.2
+                emmy10:
                     IB_IPaddresses:
-                    -   10.2.8.1
-                    -   10.2.8.2
+                    -   10.2.10.1
+                    -   10.2.10.2
             vars:
                 installerTmpFolder: "/root"
                 sharedSoftwarePath: "/apps"
         GPU:
             hosts:
-                emmy2:
-                emmy8:
+                emmy1:
+                emmy4:
             vars:
                 gpuDriverVersion: "560.35.03"
     vars:

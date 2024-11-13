@@ -16,6 +16,12 @@
     ansible.builtin.set_fact:
         openMPIModulefileName: "{{ openMPIExtendedVersionName }}.lua"
 
+-   name: Create modulefile folder
+    ansible.builtin.file:
+        path: "{{ (modulefilesFolder, 'openmpi') | path_join }}"
+        state: directory
+        mode: "0755"
+
 -   name: put openmpi modulefile to modulefile location
     ansible.builtin.template:
         src: openmpi-version.lua.j2
