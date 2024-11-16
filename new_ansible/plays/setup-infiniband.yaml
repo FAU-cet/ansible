@@ -10,6 +10,7 @@
             -   libibverbs
             -   libibverbs-utils
             -   infiniband-diags
+    -   role: configure-ib-ip
 
 -   name: setup openSM
     hosts: head
