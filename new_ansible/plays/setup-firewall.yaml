@@ -7,6 +7,7 @@
         vars:
             services:
             -   "ssh"
+    -   role: enable-firewall-infiniband #TODO
 
 -   name: Head nfs enable firewall
     hosts: head
@@ -18,7 +19,7 @@
             -   "nfs"
             -   "rpc-bind"
             -   "mountd"
-    #-   role: enable-firewall-infiniband TODO
+    
 
 -   name: Reenable firewall (if stopped)
     hosts: all
