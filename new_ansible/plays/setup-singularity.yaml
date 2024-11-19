@@ -8,7 +8,7 @@
             package: apptainer
 
 -   name: setup singularity CUDA support
-    hosts: GPU
+    hosts: gpu
 
     roles:
     -   role: install-gpu-for-singularity
