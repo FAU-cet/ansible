@@ -8,6 +8,7 @@ This play will install and configure the cluster to use slurm.
 - `rebuild`
 - `reinstall`
 - `zone`
+\
 Vars that would brick play wenn changed from default are not listed
 
 ## Roles
