@@ -4,7 +4,7 @@ This playbook will install the cudatoolkit and nvidia hpc_sdk
 - `cuda_version`
 - `nvhpc_sdk_version`
 - `installerTmpFolder`
-- `homeFolder`
+- `sharedSoftwarePath`
 - `modulefilesFolder`
 ## Tags
 - `cudatoolkit` only install nvidia cuda toolkit
