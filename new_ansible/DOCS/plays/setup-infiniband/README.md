@@ -30,7 +30,7 @@ InfiniBand debug tools like `ibdiagnet` are installed from mellanox. This playbo
   -  values: a boolean
   -  Default: true
 ## Roles
-- [`untlimit-rdma-users`](../../roles/unlimit-rdma-users)
+- [`unlimit-rdma-users`](../../roles/unlimit-rdma-users)
 - [`intsall-package`](../../roles/install-package)
 - [`configure-ib-ip`](../../roles/configure-ib-ip)
 - [`enable-autostart`](../../roles/enable-autostart)
