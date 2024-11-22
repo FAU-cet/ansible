@@ -1,4 +1,4 @@
-# Install Openmpi
+# Install OpenMPI
 ## Vars
 - `openMPIVersion`
 - `intstallerTmpFolder`
