@@ -1,12 +1,12 @@
 # SuCoPra
-
-Git for ansible and Kickstart manly by NiLS \
-Singularity is from Simion and Lmod is largely by Philipp both SuCoPra 2023
 newest ansible "branch" is new_ansible/ \
 copy hosts file to /etc/ansible/hosts 
+##
+The start of basic documentation can be found under [DOCS/](new_ansible/DOCS)
 
-# TODOs
-
-singularity is from Simion and there for not working for HPCG \
-A lot of variables are hardcoded in defaults/ change to inventory file part of that is already done in new_ansible/ \
-Benötigte software: https://notes.stuve.fau.de/iBCKtlfHTsSXo64QNLwfig?both
+## TODOs
+- [ ] Fix order of IB installer
+- [ ] Fix order of Slurm installer
+- [ ] Create docs vor everything
+- [ ] Create checker for IB
+- [ ] Make read for almaLinux 10
