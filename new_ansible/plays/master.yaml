@@ -1,4 +1,4 @@
-# - ansible.bulitin.import_playbook: setup-GPU-driver.yaml
+- ansible.bulitin.import_playbook: setup-GPU-driver.yaml
 
 - ansible.builtin.import_playbook: setup-infiniband.yaml
 
