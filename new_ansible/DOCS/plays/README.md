@@ -9,3 +9,4 @@ run a ansible playbook by executing `ansible-playbook <nameOfPlaybook.yaml>`
 - [setup-infiniband](setup-infiniband/)
 - [setup-nvidia-toolkits](setup-nvidia-toolkits/)
 - [setup-firewall](setup-firewall/)
+- [setup-singularity](setup-singularity/)
