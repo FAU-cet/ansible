@@ -15,3 +15,8 @@ After that the Offical nvidia GPU driver will be installed. Eiter from the repo 
   - A Directorey to which the installer for specfic version gets downloaded. Should be junique to that node.
   - Values: a valid path that exist on the nodes or none if using repo
   - Default: none
+
+## Roles
+-  [`enable-repos`](../../roles/enable-repos)
+-  [`block-nouveau`](../../roles/block-nouveau)
+-  [`install-nvidia-driver`](../../roles/install-nvidia-driver`)
