@@ -9,38 +9,37 @@ OpenMPI will be install on the head node therefor the install folder musst be sh
   -  Values: a valid openMPI version number i.e. `5.0.6`
   -  Default: none
 - `intstallerTmpFolder`
-  -  The Folder in which the installer puts everything that is not neaded after installation (i.e. download, buildoutput...) . This will not be cleand up afterwards
-  -  Values: a path that exists on the node
-  -  Default: none
+  - The Folder in which the installer puts everything that is not neaded after installation (i.e. download, buildoutput...) . This will not be cleand up afterwards
+  - Values: a path that exists on the node
+  - Default: none
 - `cuda_version`
-  -  The version number of a cuda instalation under `<sharedSoftwarePath>/cuda/cuda-<cuda_version>` that will be used for building openMPI with cuda. This value will be ignored if openMPIwithCuda is false
-  -  Values: a valid cuda version i.e. `12.4.0`
-  -  Default: none
+  - The version number of a cuda instalation under `<sharedSoftwarePath>/cuda/cuda-<cuda_version>` that will be used for building openMPI with cuda. This value will be ignored if openMPIwithCuda is false
+  - Values: a valid cuda version i.e. `12.4.0`
+  - Default: none
 - `openMPIwithCuda`
-  -  Controls whether openMPI will be build with cuda
-  -  Values: a boolean value
-  -  Default: `yes`
+  - Controls whether openMPI will be build with cuda
+  - Values: a boolean value
+  - Default: `yes`
 - `openMPIConfigure`
-  -  If this var is not given the configure string will be created from the given input vars 
-  -  Values: a valid string for the configure command of openmpi
-  -  Default: none
+  - If this var is not given the configure string will be created from the given input vars 
+  - Values: a valid string for the configure command of openmpi
+  - Default: none
 - `sharedSoftwarePath`
-  -  the Path ware openMPI will be installed
-  -  Values: a valid path on the head node
-  -  Default
+  - the Path ware openMPI will be installed
+  - Values: a valid path on the head node
+  - Default
 - `openMPIwithPMIx`
   -  Controls whether openMPI will be build with PMIx 
   -  Values: a boolean value
   -  Default: `yes`
-<!-- TODO wy dose the brack? -->
--  `openMPIwithPMI` 
+- `openMPIwithPMI` 
   -  Controls whether openMPI will be build with PMI(2). This value will be ignored if `openMPIversion` is 5 or higher because support for PMI(2) was removed in openMPI
   -  Values: a boolean value
   -  Default: `yes`
--  `modulefilesFolder`
-  -  the root path of Lmod modulefiles. The modulefile will be created under `<modulefilesFolder>/openmpi/`
-  -  Values: a valid path on the head node
-  -  Default: none
+- `modulefilesFolder`
+  - the root path of Lmod modulefiles. The modulefile will be created under `<modulefilesFolder>/openmpi/`
+  - Values: a valid path on the head node
+  - Default: none
 
 ## Roles
 - [`install-package`](../../roles/install-package)
