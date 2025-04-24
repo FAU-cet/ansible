@@ -19,4 +19,4 @@ After that the Offical nvidia GPU driver will be installed. Eiter from the repo 
 ## Roles
 -  [`enable-repos`](../../roles/enable-repos)
 -  [`block-nouveau`](../../roles/block-nouveau)
--  [`install-nvidia-driver`](../../roles/install-nvidia-driver`)
+-  [`install-nvidia-driver`](../../roles/install-nvidia-driver)
