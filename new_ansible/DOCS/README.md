@@ -1,5 +1,5 @@
 # WIki for Ansible
-
+Ansible is like a script language to configure IT hardware. 
 ## Roles
 [Overview](roles/)
 ## Plays

@@ -22,7 +22,7 @@
             -   7012
             -   7013
 
--   name: install munge and pmix for slurm
+-   name: install munge and pmix and ucx for slurm
     hosts: all
 
     roles:
@@ -37,6 +37,11 @@
             -   pmix-tools
             -   autoconf
             -   automake
+            -   ucx
+            -   ucx-devel
+            -   ucx-ib
+            -   ucx-rdmacm
+            -   ucx-cma
 
 -   name: install slurm on head node
     hosts: head
