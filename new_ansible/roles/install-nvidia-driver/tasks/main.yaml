@@ -46,7 +46,7 @@
         ansible.builtin.dnf:
             name:
             -   gcc
-            -   kernel-devel
+            -   "kernel-devel-{{ ansible_kernel }}"
             state: present
 
     -   name: exec run file

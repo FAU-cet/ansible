@@ -1,4 +1,5 @@
 -   name: test
     hosts: head
     roles:
-    -   role: install-nvhpc
+    -   role: install-MLNX-OFED
+

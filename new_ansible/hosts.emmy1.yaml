@@ -2,29 +2,29 @@ all:
     children:
         head:
             hosts:
-                cs3-emmy-10:
+                cs3-emmy-11:
                     sharedSoftwareOriginalPath: "/apps"
         com:
             hosts:
-                cs3-emmy-0:
+                cs3-emmy-1:
                     IB_IPaddresses:
                     -   10.2.1.1
                     -   10.2.1.2
-                cs3-emmy-3:
+                cs3-emmy-11:
                     IB_IPaddresses:
-                    -   10.2.4.1
-                    -   10.2.4.2
-                cs3-emmy-10:
+                    -   10.2.11.1
+                    -   10.2.11.2
+                cs3-emmy-8:
                     IB_IPaddresses:
-                    -   10.2.10.1
-                    -   10.2.10.2
+                    -   10.2.8.1
+                    -   10.2.8.2
             vars:
                 installerTmpFolder: "/root"
                 sharedSoftwarePath: "/apps"
         GPU:
             hosts:
-                cs3-emmy-0:
-                cs3-emmy-3:
+                cs3-emmy-2:
+                cs3-emmy-8:
             vars:
                 gpuDriverVersion: "560.35.03"
     vars:
@@ -46,3 +46,4 @@ all:
         nvhpc_sdk_version: "2024 249 12.6" # Jahr version cuda_version
         modulefilesFolder: "{{ (sharedSoftwarePath, 'modulefiles') | path_join }}"
         cuda_version: "12.4.0"
+

@@ -11,20 +11,20 @@
             -   libibverbs-utils
             -   infiniband-diags
 
--   name: setup openSM
-    hosts: head
-
-    roles:
-    -   role: install-package
-        vars:
-            package: opensm
-    -   role: enable-autostart
-        vars:
-            service: opensm
+# -   name: setup openSM
+#     hosts: head
+#
+#     roles:
+#     -   role: install-package
+#         vars:
+#             package: opensm
+#     -   role: enable-autostart
+#         vars:
+#             service: opensm
 
 -   name: install debug tools
     hosts: all
 
     roles:
-    -   role: install-infinibandDebug
+#    -   role: install-infinibandDebug
     -   role: configure-ib-ip

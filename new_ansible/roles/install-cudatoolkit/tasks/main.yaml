@@ -28,4 +28,4 @@
     ansible.builtin.shell:
         cmd: "{{ (installerTmpFolder, cudaInstallerRunfile ) | path_join }} --silent --toolkit --toolkitpath={{ (sharedSoftwarePath, 'cuda', cudaVersionName) | path_join }} --samples --samplespath={{ (sharedSoftwarePath, 'cuda', cudaVersionName, 'samples' ) | path_join }}"
     environment:
-        PATH: "{{ (sharedSoftwarePath, 'gcc', gcc_version, 'bin') | path_join }}:{{ ansible_env.PATH }}"
+        #PATH: "{{ (sharedSoftwarePath, 'gcc', gcc_version, 'bin') | path_join }}:{{ ansible_env.PATH }}"
