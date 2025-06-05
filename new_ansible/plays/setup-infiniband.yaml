@@ -4,12 +4,12 @@
 
     roles:
     -   role: unlimit-rdma-users
-    -   role: install-package
-        vars:
-            packages:
-            -   libibverbs
-            -   libibverbs-utils
-            -   infiniband-diags
+    # -   role: install-package
+    #     vars:
+    #         packages:
+    #         -   libibverbs
+    #         -   libibverbs-utils
+    #         -   infiniband-diags
 
 # -   name: setup openSM
 #     hosts: head
@@ -22,7 +22,7 @@
 #         vars:
 #             service: opensm
 
--   name: install debug tools
+-   name: configure IP-addresses for IB
     hosts: all
 
     roles:
