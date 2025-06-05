@@ -5,11 +5,19 @@
         dest: "{{ installerTmpFolder }}" #"{{ (installerTmpFolder, 'MLNX-OFED') | path_join }}"
         remote_src: yes
 
-    #TODO install perl
-
     #TODO install gcc-gfortan tk
+    #TODO install perl
+-   name: install perl, gcc-gfortan and tk as needed for the mlnxofedinstaller
+    ansible.builtin.dnf:
+        name:
+        -   perl
+        -   gcc-gfortan
+        -   tk
+        state: present
+
+
 
 -   name: install MLNX-OFED Driver
     ansible.builtin.shell:
-        cmd: "./mlnxofedinstall --all --with-nfsrdma" #TODO add --force ???
+        cmd: "./mlnxofedinstall --all --with-nfsrdma --force" #TODO add --force ???
         chdir: "{{ (installerTmpFolder, mlnx_ofed_version) | path_join }}"
